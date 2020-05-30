@@ -1,3 +1,8 @@
+extern crate nom;
+
+mod parser;
+mod templates;
+
 #[cfg(test)]
 mod tests {
     #[test]
