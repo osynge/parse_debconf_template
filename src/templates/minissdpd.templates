@@ -1,0 +1,172 @@
+
+Template: minissdpd/why_I_am_here
+Type: note
+Description: MiniSSDP daemon configuration
+ The MiniSSDP daemon is being installed (perhaps as a dependency for UPnP
+ support) but will not function correctly until it is configured.
+ .
+ MiniSSDP is a daemon used by MiniUPnPc to speed up device discovery. For
+ security reasons, no out-of-box default configuration can be provided, so it
+ requires manual configuration.
+ .
+ Alternatively you can simply override the recommendation and remove MiniSSDP,
+ or leave it unconfigured - it won't work, but MiniUPnPc (and UPnP
+ applications) will still function properly despite some performance loss.
+Description-da.UTF-8: MiniSSDP-dæmonkonfiguration
+ MiniSSDP-dæmonen bliver installeret (måske som en afhængihged for UPnP-understøttelse) men vil ikke fungere korrekt indtil den er konfigureret.
+ .
+ MiniSSDP er en dæmom brugt af MiniUPnPc til at øge hastigheden på enhedsregistrering. På grund af sikkerhedsproblemstillinger, kan en ud af boksen-standardkonfiguration ikke tilbydes længere, derfor er en manuel konfiguration krævet.
+ .
+ Alternativt kan du bare ignorere anbefalingen og fjerne MiniSSDP, eller efterlade den uden konfiguration - det vil ikke fungere, men MiniUPnPc (og dine UPnP-programmer) vil stadig fungere korrekt på trods af lidt ydelsestab.
+Description-de.UTF-8: Konfiguration des MiniSSDP-Daemons
+ Der MiniSSDP-Daemon wird installiert (vielleicht als eine Abhängigkeit zur UPnP-Unterstützung), wird aber nicht korrekt funktionieren, bis er konfiguriert wurde.
+ .
+ MiniSSDP ist ein von MiniUPnPc verwandter Daemon, um die Geräteerkennung zu beschleunigen. Aus Sicherheitsgründen kann keine Standardkonfiguration bereitgestellt werden, daher wird eine manuelle Konfiguration benötigt.
+ .
+ Alternativ können Sie auch einfach die Empfehlung außer Kraft setzen und MiniSSDP entfernen oder es unkonfiguriert lassen. Es wird nicht funktionieren, aber MiniUPnPc (und UPnP-Anwendungen) werden weiterhin, wenn auch mit Leistungsverlusten, korrekt funktionieren.
+Description-nl.UTF-8: Configuratie van de achtergronddienst MiniSSDP
+ De achtergronddienst MiniSSDP werd geïnstalleerd (misschien als een vereiste voor UPnP-ondersteuning), maar zal niet correct functioneren totdat deze geconfigureerd werd.
+ .
+ MiniSSDP is een achtergronddienst die door MiniUPnPc gebruikt wordt om apparaten sneller te vinden. Uit veiligheidsoverwegingen kan niet meer in een automatische standaardconfiguratie voorzien worden. Daarom is een manuele configuratie vereist.
+ .
+ Een andere mogelijkheid is om de aanbeveling gewoon te omzeilen en MiniSSDP te verwijderen of het niet-geconfigureerd te laten - het zal niet werken, maar MiniUPnPc (en UPnP-toepassingen) zullen nog steeds behoorlijk functioneren (ondanks enig prestatieverlies).
+Description-pt.UTF-8: Configuração do daemon do MiniSSDP
+ O daemon do MiniSSDP está a ser instalado (talvez como uma dependência para suporte a UPnP) mas não irá funcionar correctamente até ser configurado.
+ .
+ O MiniSSDP é um daemon usado pelo MiniUPnPc para acelerar a descoberta de dispositivos. Por razões de segurança, não pode ser disponibilizada uma configuração predefinida "fora-da-caixa", por isso requer configuração manual.
+ .
+ Alternativamente você pode simplesmente pular esta recomendação e remover o MiniSSDP ou deixá-lo desconfigurado - não irá funcionar, mas o MiniUPnPc (e aplicações de UPnP) irão funcionar correctamente apesar de alguma perda de performance.
+Description-pt_BR.UTF-8: Configuração do daemon do MiniSSDP
+ O daemon do MiniSSDP está sendo instalado (talvez como uma dependência para dar suporte a UPnP) mas não funcionará corretamente até que seja configurado.
+ .
+ O MiniSSDP é um daemon usado pelo MiniUPnPc para acelerar a descoberta de dispositivos. Por razões de segurança, nenhuma configuração inicial pode ser fornecida, assim é necessário configurar manualmente.
+ .
+ Alternativamente, você pode simplesmente sobrepor a recomendação e remover o MiniSSDP, ou deixá-lo sem configuração - ele não funcionará, mas o MiniUPnPc (e aplicações UPnP) ainda funcionarão apropriadamente, apesar de alguma perda de desempenho.
+Description-sv.UTF-8: Inställningar för MiniSSDP-tjänsten
+ Tjänsten MiniSSDP installeras (kanske som beroende för UPnP-stöd) men kommer inte fungera korrekt innan den fått inställningar angivna.
+ .
+ MiniSSDP är en tjänst som används av MiniUPnPc för att snabba upp upptäckandet av enheter. Av säkerhetsskäl finns ingen standardinställning så allt behöver hanteras manuellt.
+ .
+ Alternativt så kan du avvisa rekommendationen och ta bort MiniSSDP, eller lämna den utan inställningar - då kommer den inte fungera men MiniUPnPc (och UPnP-applikationer) kommer fortfarande fungera med viss prestandaförlust.
+Description-vi.UTF-8: Cấu hình dịch vụ MiniSSDP
+ Dịch vụ MiniSSDP đang được cài đặt (có lẽ như là một phụ thuộc vào hỗ trợ UPnP) nhưng sẽ không hoạt động chính xác cho đến khi nó được cấu hình.
+ .
+ MiniSSDP là một dịch vụ được sử dụng bởi MiniUPnPc để tăng tốc độ phát hiện thiết bị. Vì lý do bảo mật, không có cấu hình mặc định của hộp ngoài có thể được cung cấp, vì vậy nó yêu cầu cấu hình thủ công.
+ .
+ Ngoài ra bạn có thể đơn giản là ghi đè lên các khuyến nghị và gỡ bỏ MiniSSDP, hoặc để lại nó không được cấu hình - nó sẽ không làm việc, nhưng MiniUPnPc (và các ứng dụng UPnP) vẫn sẽ hoạt động đúng mặc dù làm giảm hiệu suất.
+Description-zh_CN.UTF-8: MiniSSDP 守护进程配置
+ MiniSSDP 守护程序已安装（可能作为 UPnP 支持的依赖项），但在配置之前无法正常运行。
+ .
+ MiniSSDP 是用于加速 MiniUPnPc 发现设备的守护进程。由于潜在的安全问题，无法提供开箱即用的默认配置，因此需要手动配置。
+ .
+ 此外，您可以选择删除 MiniSSDP，或忽略此配置 - MiniSSDP 将不会工作，但 MiniUPnPc（和 UPnP 应用程序）仍将正常运行，尽管性能会有所下降。
+Description-zh_TW.UTF-8: MiniSSDP 守護程序配置
+ MiniSSDP 守護程式已安裝（可能作為 UPnP 支援的依賴項），但在配置之前無法正常運行。
+ .
+ MiniSSDP 是用於加速 MiniUPnPc 發現裝置的守護程序。由於潛在的安全問題，無法提供開箱即用的預設配置，因此需要手動配置。
+ .
+ 此外，您可以選擇刪除 MiniSSDP，或忽略此配置 - MiniSSDP 將不會工作，但 MiniUPnPc（和 UPnP 應用程式）仍將正常執行，儘管效能會有所下降。
+
+Template: minissdpd/start_daemon
+Type: boolean
+Default: false
+Description: Start the MiniSSDP daemon automatically?
+ Choose this option if the MiniSSDP daemon should start automatically,
+ now and at boot time.
+Description-da.UTF-8: Start MiniSSDP-dæmonen automatisk?
+ Vælg denne indstilling hvis MiniSSDP-dæmonen skal starte automatisk, nu og ved opstartstidspunktet.
+Description-de.UTF-8: Den MiniSSDP-Daemon automatisch starten?
+ Wählen Sie diese Option, falls der Daemon MiniSSDP jetzt und zum Systemstartzeitpunkt automatisch starten soll.
+Description-fr.UTF-8: Faut-il lancer le démon automatiquement ?
+ Choisissez cette option si le démon MiniSSDP doit être lancé automatiquement, maintenant et à l'amorçage.
+Description-nl.UTF-8: De achtergronddienst MiniSSDP automatisch starten?
+ Kies deze optie als de achtergronddienst MiniSSDP nu en bij het starten van de computer automatisch moet opstarten.
+Description-pt.UTF-8: Iniciar automaticamente o daemon MiniSSDP?
+ Escolha esta opção se o daemon MiniSSDP deverá arrancar automaticamente, agora e durante o arranque da máquina.
+Description-pt_BR.UTF-8: Iniciar o daemon do MiniSSDP automaticamente?
+ Escolha essa opção se o daemon do MiniSSDP deve iniciar automaticamente, agora e durante a inicialização do sistema.
+Description-ru.UTF-8: Запускать службу MiniSSDP автоматически?
+ Выберите эту опцию, если службу MiniSSDP следует запустить сейчас, а также автоматически запускать во время загрузки системы.
+Description-sv.UTF-8: Starta MiniSSDP-tjänsten automatiskt?
+ Välj detta alternativ om MiniSSDP-tjänsten ska starta automatiskt - nu och vid uppstart.
+Description-vi.UTF-8: Khởi động dịch vụ MiniSSDP một cách tự động?
+ Chọn tùy chọn này nếu dịch vụ MiniSSDP nên tự khởi động, ngay bây giờ và vào lúc khởi động.
+Description-zh_CN.UTF-8: 自动启动 MiniSSDP 守护进程？
+ 若希望 MiniSSDP 守护程序现在和启动时自动启动，请选择此选项。
+Description-zh_TW.UTF-8: 自動啟動 MiniSSDP 守護程序？
+ 若希望 MiniSSDP 守護程式現在和啟動時自動啟動，請選擇此選項。
+
+Template: minissdpd/listen
+Type: string
+Description: Interfaces to listen on for UPnP queries:
+ The MiniSSDP daemon will listen for requests on one interface, and drop
+ all queries that do not come from the local network. Please enter the LAN
+ interfaces or IP addresses of those interfaces (in CIDR notation) that it
+ should listen on, separated by space.
+ .
+ Interface names are highly preferred, and required if you plan to enable IPv6
+ port forwarding.
+Description-da.UTF-8: Grænseflader at lytte på for UPnP-forespørgsler:
+ MiniSSDP-dæmonen vil lytte efter forespørgsler på en grænseflade og droppe alle forespørgsler, som ikke kommer fra det lokale netværk. Indtast venligst LAN-grænsefladen eller IP-adressen for disse grænseflader (i CIDR-notation), som den skal lytte på, adskilt af mellemrum.
+ .
+ Grænsefladenavnet foretrækkes og er krævet, hvis du planlægger at aktivere IPv6-portomdirigering.
+Description-de.UTF-8: Schnittstellen, an denen auf UPnP-Anfragen gewartet werden soll:
+ Der MiniSSDP-Daemon wird auf einer Schnittstelle auf Anfragen warten und alle Anfragen verwerfen, die nicht vom lokalen Netzwerk stammen. Bitte geben Sie die LAN-Schnittstellen oder die IP-Adressen dieser Schnittstellen (in CIDR-Notation) ein, an denen auf Anfragen gewartet werden soll. Trennen Sie die Einträge durch Leerzeichen.
+ .
+ Schnittstellennamen werden nachdrücklich bevorzugt. Falls Sie vorhaben, eine IPv6-Portweiterleitung zu aktivieren, sind dieser erforderlich.
+Description-nl.UTF-8: Interfaces waarop naar UPnP-aanvragen geluisterd moet worden:
+ De achtergronddienst MiniSSDP zal aanvragen beluisteren op één interface en alle verzoeken die niet van het lokale netwerk afkomstig zijn, laten vallen. Vermeld de LAN-interfaces of de IP-adressen van deze interfaces (in CIDR-notatie) waarop geluisterd moet worden, van elkaar gescheiden met een spatie.
+ .
+ De interfacenamen genieten een sterke voorkeur en deze zijn zelfs vereist als u zinnens bent IPv6 port forwarding te gebruiken.
+Description-pt.UTF-8: Interfaces onde escutar por pedidos de UPnP:
+ O daemon MiniSSDP irá escutar pedidos em uma interface, e ignorar todos os pedidos que não venham da rede local. Por favor indique as interfaces LAN ou os endereços IP dessas interfaces (em notação CIDR) de onde ele deverá escutar, separados por espaços.
+ .
+ Nomes são altamente preferíveis e necessários se planear em activar o reencaminhamento de portos IPv6.
+Description-pt_BR.UTF-8: Interfaces para escutar consultas UPnP:
+ O daemon do MiniSSDP escutará requisições em uma interface, e descartará todas as consultas que não vierem da rede local. Por favor, informe as interfaces LAN ou endereços IP (na notação CIDR) nos quais ele deverá escutar, separados por espaço.
+ .
+ É altamente preferido informar os nomes das interfaces, e é obrigatório se você planeja habilitar encaminhamento de porta IPv6.
+Description-sv.UTF-8: Gränssnitt att lyssna på UPnP-förfrågningar:
+ MiniSSDP-tjänsten kommer att lyssna på förfrågningar på ett gränssnitt och slänga alla förfrågningar som inte kommer från det lokala nätverket. Ange LAN-gränssnitt och IP-adresser (i CIDR) som tjänsten ska lyssna på.
+ .
+ Namn på gränssnitt är att föredra och krävs för att stödja portförmedling i IPv6.
+Description-vi.UTF-8: Giao diện để lắng nghe các truy vấn UPnP:
+ Dịch vụ MiniSSDP sẽ lắng nghe các yêu cầu trên giao diện, và xóa tất cả các truy vấn mà nó không đến từ mạng nội bộ. Xin vui lòng nhập các giao diện mạng Lan hoặc địa chỉ IP của những giao diện (dạng ký hiệu CIDR) mà nó nên lắng nghe trên, cách nhau bằng khoảng trắng.
+ .
+ Tên giao diện được ưa thích hơn, và là bắt buộc nếu bạn định bật chuyển tiếp cổng IPv6.
+Description-zh_CN.UTF-8: 监听 UPnP 查询的 LAN 网络：
+ MiniSSDP 守护进程将监听本地网络上的请求，所有来自非设定网络的查询将丢弃。请输入应监听的 LAN 接口或其 IP 地址（CIDR 格式），用空格分开。
+ .
+ 首选输入接口名称，如果您打算启用 IPv6 监听，则必须输入名称。
+Description-zh_TW.UTF-8: 監聽 UPnP 查詢的 LAN 網路：
+ MiniSSDP 守護程序將監聽本地網路上的請求，所有來自非設定網路的查詢將丟棄。請輸入應監聽的 LAN 介面或其 IP 地址（CIDR 格式），用空格分開。
+ .
+ 首選輸入介面名稱，如果您打算啟用 IPv6 監聽，則必須輸入名稱。
+
+Template: minissdpd/ip6
+Type: boolean
+Default: false
+Description: Enable IPv6 listening?
+ Please specify whether the MiniSSDP daemon should listen for IPv6 queries.
+Description-da.UTF-8: Aktiver IPv6-lytning?
+ Angiv venligst om MiniSSDP-dæmonen skal lytte efter IPv6-forespørgsler.
+Description-de.UTF-8: Auf IPv6-Anfragen warten?
+ Bitte geben Sie an, ob der MiniSSDP-Daemon auf IPv6-Anfragen warten soll.
+Description-fr.UTF-8: Faut-il activer l'écoute d'IPv6 ?
+ Veuillez indiquer si le démon MiniSSDP doit être à l'écoute de requêtes IPv6.
+Description-nl.UTF-8: Beluisteren van IPv6 activeren?
+ Geef aan of de achtergronddienst MiniSSDP IPv6-aanvragen moet beluisteren.
+Description-pt.UTF-8: Activar a escuta de IPv6?
+ Por favor especifique se o daemon MiniSSDP deverá escutar pedidos IPv6.
+Description-pt_BR.UTF-8: Habilitar escuta IPv6?
+ Por favor, especifique se o daemon do MiniSSDP deverá escutar consultas IPv6.
+Description-ru.UTF-8: Включить прослушивание IPv6?
+ Укажите, следует ли службе MiniSSDP прослушивать IPv6-запросы.
+Description-sv.UTF-8: Lyssna på IPv6?
+ Ange om MiniSSDP-tjänsten ska lyssna på förfrågningar på IPv6.
+Description-vi.UTF-8: Cho phép lắng nghe IPv6?
+ Vui lòng chỉ định dịch vụ MiniSSDP có nên lắng nghe các truy vấn IPv6.
+Description-zh_CN.UTF-8: 启用 IPv6 监听？
+ 请指定 MiniUPnP 守护程序是否应监听 IPv6 查询。
+Description-zh_TW.UTF-8: 啟用 IPv6 監聽？
+ 請指定 MiniUPnP 守護程式是否應監聽 IPv6 查詢。

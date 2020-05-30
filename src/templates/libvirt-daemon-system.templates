@@ -1,0 +1,112 @@
+Template: libvirt-daemon-system/id_warning
+Type: boolean
+Default: true
+Description: Continue with incorrect libvirt-qemu user/group ID(s)?
+  The user/group ID (uid/gid) allocated for libvirt-qemu (64055)
+  seems to be taken by another user/group, thus it is not possible
+  to create the user/group with this numeric ID.
+ .
+  The migration of guests with disk image files shared over NFS
+  requires a static libvirt-qemu user and group ID (uid and gid)
+  between the source and destination host systems.
+ .
+  If guest migration over NFS is not required, you can continue
+  the installation.
+ .
+  In order to resolve this problem, do not continue the installation,
+  release the 64055 uid/gid (which might involve permission changes),
+  then install this package again.
+Description-da.UTF-8: Fortsæt med ukorrekte libvirt-qemu user/group id'er?
+  Bruger/gruppe-id'er (uid/gid) allokeret for libvirt-qemu (64055)
+  ser ud til at være taget af en anden bruger/gruppe, det er
+  derfor ikke muligt at oprette brugeren/gruppen med dette
+  numeriske id.
+ .
+  Migreringen af gæster med diskaftryksfiler delt over NFS
+  kræver en statisk libvirt-qemu bruger og gruppe-id (uid og
+  gid) mellem kilde- og destinationsværtssystemet.
+ .
+  Hvis gæstemigrering over NFS ikke er krævet, så kan du fortsætte
+  installationen.
+ .
+  For at løse dette problem, fortsæt ikke installationen, frigiv
+  64055 uid/gid'en (hvilket kan kræve rettighedsændringer), og
+  installer så denne pakke igen.
+Description-de.UTF-8: Mit falscher libvirt-qemu Benutzer- bzw. Gruppen-Kennung (UID/GID) fortfahren?
+  Die libvirt-qemu zugeordnete Benutzer-/Gruppen-Kennung (UID/GID) (64055)
+  scheint von einem anderen Benutzer bzw. eine anderen Gruppe verwendet zu
+  werden. Daher ist es nicht möglich, einen Benutzer bzw. eine Gruppe mit
+  dieser Nummer zu erzeugen.
+ .
+  Um Gäste mit Image Dateien die via NFS verteilt werden zu migrieren wird
+  eine identische libvirt-qemu Nutzer and Gruppen ID zwischen Quell- und
+  Ziel Host System benötigt.
+ .
+  Wenn Gast Migration via NFS nicht benötigt wird
+  können Sie mit der Installation fort fahren.
+ .
+  Um das Problem zu lösen, beenden Sie die Installation und geben die Benutzer-
+  bzw. Gruppen-Kennung 64055 frei (was Änderungen von Zugriffsberechtigungen nach
+  sich ziehen könnte). Versuchen Sie anschließend die Installation erneut.
+Description-fr.UTF-8: Faut-il continuer avec un identifiant d'utilisateur ou de groupe pour libvirt-qemu incorrect ?
+ L'identifiant d'utilisateur ou de groupe (uid ou gid) attribué à libvirt-qemu (64055) semble être déjà utilisé par un autre utilisateur ou groupe, il n'est donc pas possible de créer l'utilisateur ou le groupe avec cet identifiant numérique.
+ .
+ La migration des systèmes invités avec des fichiers d'image disque partagés au travers de NFS requiert un identifiant d'utilisateur et de groupe statique (uid et gid) pour libvirt-qemu entre les systèmes hôtes source et destination.
+ .
+ Si la migration des systèmes invités au travers de NFS n'est pas nécessaire, vous pouvez continuer l'installation.
+ .
+ Pour résoudre ce problème, ne continuez pas l'installation, libérez l'uid et le gid 64055 (cela peut impliquer des modifications d'autorisation), puis installez à nouveau le paquet.
+Description-nl.UTF-8: Verdergaan met foutieve gebruikers-/groeps-ID(s) voor libvirt-qemu?
+  De gebruikers-/groeps-ID (uid/gid) die bestemd is voor libvirt-qemu (64055)
+  lijkt ingenomen te zijn door een andere gebruiker/groep. Het is dus
+  niet mogelijk om de gebruiker/groep aan te maken met deze numerieke ID.
+ .
+  De migratie van gasten met over NFS gedeelde disk-imagebestanden
+  vereist dat libvirt-qemu op de bron- en doel-gastheersystemen
+  een statische gebruikers- en groeps-ID (uid en gid) heeft.
+ .
+  Indien er geen gastsysteemmigraties over NFS nodig zijn,
+  kunt u voortgaan met de installatie.
+ .
+  Om dit probleem op te lossen, mag u de installatie niet voortzetten,
+  moet u de uid/gid 64055 vrijmaken (daar kunnen ook wijzigingen van
+  permissies bij komen kijken), en dan dit pakket opnieuw installeren.
+Description-pt.UTF-8: Continuar com o ID(s) de libvirt-qemu user/group incorrecto(s)?
+  O ID (uid/gid) do utilizador/grupo alocado para libvirt-qemu 
+  (64055)  parece ter sido tomado por outro utilizador/grupo, 
+  tornando impossível criar o utilizador/grupo com este ID 
+  numérico.
+ .
+  A migração de convidados com ficheiros de imagem de disco partilhados
+  por NFS requer um ID estático de utilizador e de grupo (uid e gid) do 
+  libvirt-qemu entre a fonte e o destino dos sistemas anfitriões.
+ .
+  Se não for necessária a migração de convidado sobre NFS, pode
+  continuar a instalação.
+ .
+  De modo a resolver este problema, não continue a instalação, liberte o
+  uid/gid 64055 (pode envolver alterações nas permissões) e volte
+  então a instalar este pacote novamente.
+Description-pt_BR.UTF-8: Continuar com ID(s) incorreto(s) de usuário/grupo do libvirt-qemu?
+ O ID de usuário/grupo (uid/gid) alocado para o libvirt-qemu (64055) parece estar em uso por outro usuário/grupo, portanto, não é possível criar o usuário/grupo com esse ID numérico.
+ .
+ A migração de máquinas virtuais com arquivos de imagem de disco compartilhados sobre NFS exige um ID estático de usuário e grupo do libvirt-qemu (uid e gid) entre os sistemas hospedeiros de origem e de destino.
+ .
+ Se a migração de máquinas virtuais sobre NFS não for necessária, você pode continuar com a instalação.
+ .
+ Para resolver esse problema, não continue com a instalação, libere o uid/gid 64055 (o que pode envolver modificações de permissões) e então instale esse pacote novamente.
+Description-ru.UTF-8: Продолжить с неправильными идентификаторами пользователя/группы для libvirt-qemu?
+  Похоже, что идентификатор пользователя/группы (uid/gid) выделенный
+  для libvirt-qemu (64055) занят другим пользователем/группой, поэтому не удаётся
+  создать пользователя/группу с таким номером идентификатора.
+ .
+  Для миграция гостевых систем с файлами образов дисков с общим доступом
+  через NFS требуется статичный идентификатор пользователя и группы (uid и gid)
+  libvirt-qemu как на системе-источнике, так и на системе-получателе.
+ .
+  Если производить миграцию гостевых систем через NFS не требуется, то вы
+  можете продолжить установку.
+ .
+  Для разрешения этой проблемы не продолжайте установку,
+  сначала освободите uid/gid 64055 (для этого может потребоваться
+  изменение прав доступа), а затем заново установите данный пакет.

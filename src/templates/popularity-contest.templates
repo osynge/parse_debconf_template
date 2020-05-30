@@ -1,0 +1,441 @@
+Template: popularity-contest/participate
+Type: boolean
+Default: false
+Description: Participate in the package usage survey?
+ The system may anonymously supply the distribution developers with
+ statistics about the most used packages on this system.  This
+ information influences decisions such as which packages should go on
+ the first distribution CD.
+ .
+ If you choose to participate, the automatic submission script will
+ run once every week, sending statistics to the distribution developers.
+ The collected statistics can be viewed on https://popcon.debian.org/.
+ .
+ This choice can be later modified by running "dpkg-reconfigure
+ popularity-contest".
+Description-ar.UTF-8: هل تريد المشاركة في مسابقة شعبيّة حزم دبيان؟
+ يمكنك أن تجعل نظامك يرسل بسريّة إحصائيّاتٍ عن حزم ديبيان الأكثر استعمالاً عندك إلى مطوّري ديبيان. هذه المعلومات تؤثّر على القرارات مثل أيّ الحزم يفترض أن توضع على قرص المدمج الأوّل لدبيان.
+ .
+ إذا اخترت المشاركة فنصّ التّسليم البرمجي الآلي سيعمل أسبوعيّاً مرسلاً الإحصائيّات إلى مطوّري ديبيان. يمكن الاطلاع على الاحصائيات عبر الموقع: https://popcon.debian.org/.
+ .
+ يمكنك دائماً تغيير رأيك بعد اتّخاذ هذا بتنفذ الأمر "dpkg-reconfigure popularity-contest"
+Description-ast.UTF-8: Participar na encuesta sobro l'usu de paquete?
+ El sistema de suministra de mou anónimu a desendolcadores de la distribución, les estadístiques sobro los paquetes más usaos. Esta información inflúi en decisiones tales como qué paquetes tendríen de dir nel primer CD de distribución.
+ .
+ Si decides participar, la presentación automática de secuencia de comandos executaráse una vegada a la selmana,  unviando les estadístiques a los desendolcadores de la distribución. Les estadístiques recoyíes puen vese en https://popcon.debian.org/.
+ .
+ Esta elleición pue camudase más sero executando "dpkg-reconfigure popularity-contest".
+Description-be.UTF-8: Ці ўдзельнічаць у складанні рэйтынгу пакетаў?
+ Сістэма можа ананімна дасылаць распрацоўшчыкам дыстрыбутыву статыстыку праграмных пакетаў, якія найбольш часта ўжываюцца на гэтым камп'ютары. Гэтыя звесткі ўплываюць, напрыклад, на рашэнні аб тым, якія пакеты варта змяшчаць на першым дыску дыстрыбутыву.
+ .
+ Калі Вы вырашыце ўдзельнічаць, адпаведны скрыпт будзе штотыдзень дасылаць статыстыку распрацоўшчыкам дыстрыбутыву. Супольныя вынікі можна паглядзець па адрасе https://popcon.debian.org/.
+ .
+ Зроблены зараз выбар пазней можна змяніць запускам "dpkg-reconfigure popularity-contest".
+Description-bg.UTF-8: Участие в анкетата за популярността на пакетите?
+ Системата Ви може да изпраща анонимно ел.поща до разработчиците на дистрибуцията с информация кои са най-често използваните пакети. Тази информация влияе на решения като например кои пакети да се включат в първия компактдиск на дистрибуцията.
+ .
+ Ако изберете да участвате, специална програма ще изпраща статистиката до разработчиците на дистрибуцията веднъж седмично. Събраните данни са на разположение на адрес https://popcon.debian.org/.
+ .
+ Винаги можете да промените решението си по-късно, като изпълните „dpkg-reconfigure popularity-contest“.
+Description-bn.UTF-8: প্যাকেজ ব্যবহারের সার্ভেতে অংশগ্রহন করবেন?
+ ডিস্ট্রিবিউশন ডেভেলপারদের হয়তো অজ্ঞাত পরিচয়ে, এই সিস্টেমে ব্যবহৃত অধিকাংশ প্যাকেজ সম্পর্কে জানানো হতে পারে। ডিস্ট্রিবিউশন সিডির প্রথম সিডিটিতে কি কি প্যাকেজ থাকা উচিত, সেটার সিদ্ধান্ত নিতে এটি করা হয়।
+ .
+ আপনি যদি অংশগ্রহন করতে চান, তাহলে পরিসংখ্যান ডেভেলপারের কাছে পাঠানোর নিমিত্তে সয়ংক্রিয় স্ক্রিপ্ট প্রতি সপ্তাহে একবার আপনাআপনি চলবে। সংগৃহিত পরিসংখ্যান https://popcon.debian.org/ সাইটে দেখতে পাওয়া যাবে।
+ .
+ "dpkg-reconfigure popularity-contest" কমান্ডটি চালিয়ে এই পছন্দটি পরবর্তীতে পরিবর্তন করা যবে।
+Description-bs.UTF-8: Da li želite sudjelovati u anketi o korištenju paketa?
+ Sistem može anonimno poslati razvijateljima distribucije satistike o najčešće korištenim paketima na ovom sistemu.  Ova informacije utiču na odluke poput one koji bi se paketi trebali nalaziti na prvom CD-u distribucije.
+ .
+ Ako odlučite sudjelovati, skripta za automatsko podnošenje podataka će se pokretati jednom sedmično i slati statistike razvijateljima distribucije. Prikupljene statistike se mogu vidjeti na https://popcon.debian.org/.
+ .
+ Ovu odluku možete kasnije promijeniti pokretanjem "dpkg-reconfigure popularity-contest".
+Description-ca.UTF-8: Voleu participar a l'enquesta de popularitat dels paquets?
+ El vostre sistema pot enviar anònimament estadístiques dels paquets més utilitzats en aquest sistema als desenvolupadors de la distribució. Aquesta informació influencia decisions com ara quins paquets hauria d'incloure el primer CD de la distribució.
+ .
+ Si decidiu participar-hi, la seqüència d'enviament automàtic s'executarà un cop a la setmana i enviarà les estadístiques als desenvolupadors de la distribució. Les estadístiques recollides es poden consultar a https://popcon.debian.org/.
+ .
+ Sempre podeu canviar d'opinió posteriorment: "dpkg-reconfigure popularity-contest".
+Description-cs.UTF-8: Připojit se k průzkumu o nejpopulárnější balíky?
+ Systém může anonymně posílat vývojářům distribuce statistiku o nejvíce využívaných balících na tomto systému. Tyto informace pomáhají vývojářům v rozhodování, které balíky by měly být umístěny na prvním instalačním CD.
+ .
+ Pokud se rozhodnete připojit, automatický skript bude jednou týdně odesílat statistiku zpět vývojářům distribuce. Zpracované statistiky si můžete prohlédnout na https://popcon.debian.org/.
+ .
+ Své rozhodnutí můžete kdykoliv změnit, stačí spustit: "dpkg-reconfigure popularity-contest".
+Description-cy.UTF-8: Cymeryd rhan yn yr arolwg defnydd pecynnau?
+ Fe all y system gyflenwi ystadegau anhysbys i ddatblygwyr y dosbarthiad sy'n dangos y pecynnau ddefnyddir amlaf y system hwn. Mae'r wybodaeth hwn yn dylanwadu ar benderfyniadau ynglyn a pa becynnau ddylai fynd ar CD cynta y dosbarthiad.
+ .
+ Os ydych yn dewis cymeryd rhan, fe fydd sgript awtomatig yn rhedeg unwaith yr wythnos, gan ddanfon ystadegau i ddatblygwyr y dosbarthiad. Fe ellir gweld yr ystadegau a gasglwyd ar https://popcon.debian.org/.
+ .
+ Mae'n bosib newid y dewis hwn nes ymlaen drwy redeg "dpkg-reconfigure popularity-contest".
+Description-da.UTF-8: Vil du deltage i undersøgelsen om brug af pakkernes?
+ System kan anonymt forsyne distributionsudviklerne med statistikker om de mest benyttede pakker på dette system. Disse oplysninger har indflydelse på beslutninger som f.eks. hvilke pakker der skal være på den første cd i distributionen.
+ .
+ Hvis du vælger at deltage, vil et automatisk script køre hver uge, som sender statistikkerne til distributionsdviklerne. De indsamlede statistikker kan ses på ttp://popcon.debian.org/.
+ .
+ Du kan ændre denne indstilling senere ved at køre: "dpkg-reconfigure popularity-contest"
+Description-de.UTF-8: An der Paketverwendungserfassung teilnehmen?
+ Das System kann anonym Statistiken über die am meisten verwendeten Pakete auf diesem System an die Distributions-Entwickler schicken lassen. Diese Informationen beeinflussen beispielsweise die Entscheidungen, welche Pakete auf die erste CD kommen.
+ .
+ Wenn Sie sich entscheiden teilzunehmen, wird das automatische Übertragungsprogramm wöchentlich ausgeführt und Statistiken an die Distributions-Entwickler senden. Die vollständigen Statistiken können unter https://popcon.debian.org/ eingesehen werden.
+ .
+ Die Wahl kann später durch Ausführen von »dpkg-reconfigure popularity-contest« geändert werden.
+Description-dz.UTF-8: ཐུམ་སྒྲིལ་ལག་ལེན་གྲངས་རྩིས་ནང་ལུ་ བཅའ་མར་གཏོགས་ནི་ཨིན་ན?
+ རིམ་ལུགས་དེ་གིས་  ཁྱོད་ཀྱིས་ རིམ་ལུགས་འདི་ནང་ལུ་ ལག་ལེན་མང་ཤོས་འཐབ་ཡོད་ཐུམ་སྒྲིལ་་གྱི་སྐོར་གྱི་ ཚད་རྩིས་དང་གཅིག་ཁར་བཀྲམ་སྤེལ་བཟོ་མི་དེ་ མིང་མེད་ཐོག་ལས་བཀྲམ་སྤེལ་འབད་འོང་།  བརྡ་དོན་འདི་གིས་ ཐུམ་སྒྲིལ་ག་དེ་ ཌེ་བི་ཡཱན་སི་ཌི་དང་པའི་གུར་འགྱོ་ནི་ཨིན་ན་ ལ་སོགས་པ་བཟུམ་གྱི་ གྲོས་ཆོད་ཚུ་ལུ་རྒྱུད་བསྐུལ་འབདཝ་ཨིན།
+ .
+ ཁྱོད་ཀྱིས་གདམ་བཅའ་མར་གཏོགས་ནི་ནང་ལུ་གདམ་ཁ་རྐྱབ་པ་ཅིན་ རང་བཞིན་གྱིས་ཞུ་འབུལ་ཡིག་ཚུགས་དེ་གིས་ བགོ་བཀྲམ་བཟོ་མི་ནང་ལུ་ཚད་རྩིས་གཏང་པའི་ཐོག་ལས་ བདུན་ཕྲག་རེ་ནང་ཚར་རེ་ གཡོག་བཀོལ་འོང་། ཚད་རྩིས་བསྡུ་ལེན་འབད་ཡོད་མི་ཚུ་https://popcon.debian.org/.དེ་གི་ཐོག་ལས་སྟོན་ཚུགས།
+ .
+ གདམ་ཁ་འདི་ཤུལ་ལས་ :"dpkg-reconfigure popularity-contest" དེ་གཡོག་བཀོལ་བའི་ཐོག་ལས་ལེགས་བཅོས་གཏང་ཚུགས།
+Description-el.UTF-8: Θέλετε να συμμετάσχετε στην έρευνα χρήσης των πακέτων;
+ Το σύστημα μπορεί να διαθέτει ανώνυμα στους προγραμματιστές της διανομής Debian στατιστικά στοιχεία σχετικά με τα περισσότερο χρησιμοποιούμενα πακέτα σ' αυτό.Οι πληροφορίες αυτές επηρεάζουν αποφάσεις όπως πχ. το ποια πακέτα πρέπει να συμπεριλαμβάνονται στο πρώτο CD του Debian.
+ .
+ Αν επιλέξετε να συμμετάσχετε, το σενάριο αυτόματης υποβολής θα εκτελείται μια φορά την εβδομάδα, στέλνοντας στατιστικά στους προγραμματιστές της διανομής τουDebian. Τα στατιστικά στοιχεία που συλλέγονται μπορούν να βρεθούν στον δικτυακό τόπο https://popcon.debian.org/.
+ .
+ Η επιλογή αυτή μπορεί να τροποποιηθεί αργότερα εκτελώντας την εντολή "dpkg-reconfigure popularity-contest".
+Description-eo.UTF-8: Ĉu vi volas partopreni en la populareca enketo de Debianaj pakoj?
+ Via sistemo povas anonime sciigi Debianajn administristojn pri statistikoj rilate la plej uzitajn Debianajn pakojn. Tiuj informoj influas la elektojn de ĉeestontaj pakoj sur la unua Debiana lumdisko.
+ .
+ Se vi partoprenas, la aŭtomata submetita skripto estos ĉiusemajne plenumita por sendi statistikojn al la Debianaj administristoj. Statistikoj estas videblaj tie: 'https://popcon.debian.org/'.
+ .
+ Vi ĉiam povas ŝanĝi vian decidon per la ordono "dpkg-reconfigure popularity-contest".
+Description-es.UTF-8: ¿Desea participar en la encuesta sobre el uso de los paquetes?
+ Puede hacer que su sistema envíe anónimamente estadísticas a los desarrolladores sobre los paquetes que más usa. Esta información tiene influencia sobre ciertas decisiones, como qué paquetes deben incluirse en el primer CD de la distribución.
+ .
+ Si elige participar, el script de envío se ejecutará automáticamente una vez a la semana, mandando estadísticas a los desarrolladores. Las estadísticas se pueden consultar en https://popcon.debian.org/.
+ .
+ La elección siempre puede cambiar con la orden «dpkg-reconfigure popularity-contest»
+Description-et.UTF-8: Võtta osa pakkide kasutatavuse uurimusest?
+ See süsteem varustab arendajad anonüümselt pakkide kasutamise statistikaga selles masinas. Selle info põhjal võetakse vastu otsuseid, nagu näiteks jaotuse esimesele laserkettale tarkvara valimine.
+ .
+ Kui oled nõus osa võtma, saadab automaatne skript kord nädalas su süsteemi pakikasutuse-statistika jaotuse arendajatele. Kogutud statistika on nähtaval aadressilt https://popcon.debian.org/.
+ .
+ Seda valikut saab hiljem muuta, käivitades "dpkg-reconfigure popularity-contest".
+Description-eu.UTF-8: Paketeen erabilpen galdeketan parte hartzea nahi duzu?
+ Sistema honek anonimoki garatzaileei posta elektronikoz sistema honetan gehien erabiltzen diren paketeen estatistikak bidaliko dizkie.  Informazio honek erabakiak hartzen lagunduko du, aurreneko CDak edukiko dituen paketeen zerrenda osatzen adibidez.
+ .
+ Parte hartzea hautatu baduzu, astean behin bidalketa automatiko script-a exekutatuko da,  garatzaileei estatistikak bidaliaz. Jasotako estatististikak hemen ikus daitezke:https://popcon.debian.org/.
+ .
+ Nahi duzunean erabakiz alda dezakezu, honakoa exekutatuz: "dpkg-reconfigure popularity-contest"
+Description-fa.UTF-8: در بررسی میزان استفاده از بسته ها شرکت می کنید؟
+ سيستم ممكن است به صورت ناشناس امار  بيشترين مخازن استفاده شده را توسط توسعه دهندگان به كار بگيرد.اين اطلاعات بر روي تصميم گيري ها تاثير ميگزارند كه كدام مخزن بايد در  سي دي اول قرار گیرد.
+ .
+ اگر شما اشتراك گزاري را انتخاب كنيد هر هفته اسكريپتي آمار را به توسعه دهندگان ارسال ميكند.امار جمع آوري شده را ميتوانيد در اين آدرس ببينيد https://popcon.debian.org
+ .
+ اين انتخاب در اينده ميتواند با اين دستور اصلاح گردد:dpkg-reconfigure popularity-contest
+Description-fi.UTF-8: Osallistutko Debianin pakettimittariin?
+ Voit sallia koneesi lähettävän nimettömänä Debianin kehittäjille tilastotietoa eniten käytetyistä Debianin paketeista. Tämän tiedon perusteella valitaan esimerkiksi ensimmäiselle Debian-rompulle tulevia paketteja.
+ .
+ Jos päätät osallistua, kerran viikossa suoritettava komentotiedosto lähettää tilastoja jakelun kehittäjille. Kootut tilastot ovat luettavissa osoitteessa https://popcon.debian.org/.
+ .
+ Voit muuttaa mielesi milloin tahansa: "dpkg-reconfigure popularity-contest"
+Description-fr.UTF-8: Souhaitez-vous participer à l'étude statistique sur l'utilisation des paquets ?
+ Le système peut envoyer anonymement aux responsables de la distribution des statistiques sur les paquets que vous utilisez le plus souvent. Ces informations influencent le choix des paquets qui sont placés sur le premier CD de la distribution.
+ .
+ Si vous choisissez de participer, un script enverra automatiquement chaque semaine les statistiques aux responsables. Elles peuvent être consultées sur https://popcon.debian.org/.
+ .
+ Vous pourrez à tout moment modifier votre choix en exécutant « dpkg-reconfigure popularity-contest ».
+Description-ga.UTF-8: Ar mhaith leat suirbhé ar úsáid pacáistí a dhéanamh?
+ Soláthraíonn an córas staitisticí faoi na pacáistí is mó éilimh orthu d'fhorbróirí Debian.  Úsáidtear an t-eolas seo chun cinneadh cé acu pacáistí ba chóir a chur ar chéad dlúthdhiosca an dáilte.
+ .
+ Má roghnaíonn tú an suirbhé a dhéanamh, rithfidh script go huathoibríoch uair amháin sa tseachtain agus seolfaidh sí staitisticí chuig na forbróirí.  Is féidir na staitisticí go léir a fheiceáil ag https://popcon.debian.org/.
+ .
+ Is féidir an rogha seo a athrú amach anseo trí "dpkg-reconfigure popularity-contest" a rith.
+Description-gl.UTF-8: Participar na enquisa de utilización dos paquetes?
+ O sistema pódelle fornecer aos desenvolvedores da distribución estatísticas sobre os paquetes máis utilizados neste sistema. Esta información ten influencia sobre decisións como que paquetes van no primeiro CD da distribución.
+ .
+ Se quere participar, o programa de envío automático executarase unha vez por semana, enviándolle estatísticas aos desenvolvedores da distribución. As estatísticas colleitadas pódense ver en https://popcon.debian.org/.
+ .
+ Esta elección pódese cambiar máis tarde executando "dpkg-reconfigure popularity-contest".
+Description-gu.UTF-8: પેકેજ વપરાશ સર્વેક્ષણમાં ભાગ લેશો?
+ આ સિસ્ટમમાં સૌથી વધુ વપરાયેલ પેકેજોની માહિતી સિસ્ટમ તમારી ઓળખ છુપાવીને ડિસ્ટ્રિબ્યુશનનાં ડેવલોપર્સને મોકલી આપશે.  આ માહિતી કયું પેકેજ પ્રથમ ડિસ્ટ્રિબ્યુશન સીડીમાં જવું જોઇએ તે નિર્ણય પર અસર કરે છે.
+ .
+ જો તમે ભાગ લેવાનું પસંદ કરશો તો, આપમેળે મોકલી આપતી સ્ક્રિપ્ટ દર અઠવાડિયે એક વખત, ડિસ્ટ્રિબ્યુશનનાં ડેવલોપર્સને માહિતીઓ મોકલી આપશે. ભેગી કરેલ માહિતીઓ તમે https://popcon.debian.org/ પર જોઇ શકશો.
+ .
+ આ વિકલ્પ પાછળથી "dpkg-reconfigure popularity-contest" ચલાવીને બદલી શકાય છે.
+Description-he.UTF-8: להשתתף בסקר השימוש בחבילות?
+ המערכת יכולה לספק באופן אנונימי מידע למפתחי ההפצה לגבי סטטיסטיקת שימוש בחבילות על מערכת זאת. מידע זה משפיע על החלטות כמו איזה חבילות יופיעו על הדיסק הראשון של ההפצה.
+ .
+ אם בחרת להשתתף, סקריפט השליחה האוטומטי ירוץ פעם בשבוע וישלח את המידע למפתחי ההפצה. הסטטיסטיקה הנאספת ניתנת לצפייה בכתובת: https://popcon.debian.org/.
+ .
+ בחירה זאת ניתנת לשינוי בעתיד על ידי הרצת הפקודה "dpkg-reconfigure popularity-contest"
+Description-hi.UTF-8: पैकेज इस्तेमाल सर्वे में आप भाग लेना चाहेंगे?
+ इस तंत्र पर सबसे ज्यादा इस्तेमाल किए गए पैकेजों के बारे में सांख्यिकी को वितरण डेवलपरों को तंत्र अनाम रूप से भेज सकता है. यह जानकारी उन निर्णयों को लेने में काम आती है जैसे कि - किन पैकेजों को वितरण के प्रथम सीडी में डाला जाए.
+ .
+ यदि आप भाग लेने के लिए चुनते हैं, सर्वे जमा करने का स्वचालित स्क्रिप्ट प्रत्येक सप्ताह एक बार चलेगा, जो कि वितरण डेवलपरों को सांख्यिकी भेजेगा. संग्रहित सांख्यिकी को https://popcon.debian.org/ पर देखा जा सकता है.
+ .
+ इस विकल्प को आप बाद में "dpkg-reconfigure popularity-contest" चलाकर बदल भी सकते हैं.
+Description-hr.UTF-8: Sudjelovati u anketi korištenja paketa?
+ Vaš sustav može anonimno slati e-poštu razvijateljima distribucije sa statistikama o paketima koje najviše koristite. Ti podaci utječu na odluke kao što je izbor paketa koji će biti stavljeni na prvi CD.
+ .
+ Ako odlučite sudjelovati, automatska skripta će se pokretati svaki tjedan i slati statistike razvijateljima distribucije. Sabrane statistike se mogu vidjeti na https://popcon.debian.org/.
+ .
+ Uvijek se možete predomisliti i promijeniti svoj izbor pokretanjem: "dpkg-reconfigure popularity-contest".
+Description-hu.UTF-8: Részt veszel a csomaghasználat felmérésben?
+ Névtelenül statisztikákat közölhetsz a Debian fejlesztőivel a leggyakrabban használt Debian csomagokról. E statisztikák alapján szoktak dönteni (többek közt) az első Debian-CD-n szereplő programok listájáról.
+ .
+ Ha a részvétel mellett döntesz, az adatok beküldését végző program hetente lefut és statisztikákat juttat el a Debian fejlesztőkhöz. Az összegyűjtött statisztikák címe: https://popcon.debian.org/.
+ .
+ A választás később a "dpkg-reconfigure popularity-contest" paranccsal módosítható.
+Description-id.UTF-8: Berpartisipasi dalam Survey Penggunaan Paket Debian?
+ Anda bisa mendapatkan sistem anda mengirim surat-e anonim ke pengembang Debian yang berisi statistik paket Debian yang paling sering anda gunakan. Informasi ini mempengaruhi keputusan paket-paket mana saja yang sebaiknya dimasukkan dalam CD Debian pertama.
+ .
+ Jika anda memilih untuk berpartisipasi, script akan dijalankan secara otomatis setiap minggu untuk mengirimkan statistik kepada para pengembang Debian. Statistik yang dikumpulkan dapat dilihat di https://popcon.debian.org/.
+ .
+ Anda selalu dapat mengubah pilihan anda setelah ini dengan: "dpkg-reconfigure popularity-contest"
+Description-is.UTF-8: Viltu taka þátt í könnun á pakkanotkun?
+ Hægt er að láta kerfið senda upplýsingar um mest notuðu hugbúnaðarpakkana á kerfinu til þeirra sem eru að þróa og viðhalda dreifingunni. Þessar upplýsingar hafa meðal annars áhrif á ákvarðanir um hvaða pakkar eigi að fara á fyrsta uppsetningardisk.
+ .
+ Ef þú ákveður að taka þátt, mun sjálfvirk skrifta keyrast einu sinni í viku og senda tölfræði til þróunarteymisins. Hægt er að skoða heildarniðurstöðurnar á https://popcon.debian.org/.
+ .
+ Það er hægt að breyta þessu vali síðar með því að keyra "dpkg-reconfigure popularity-contest".
+Description-it.UTF-8: Partecipare alla raccolta dati sull'uso dei pacchetti?
+ È possibile configurare il sistema in modo da spedire anonimamente agli sviluppatori del sistema operativo statistiche riguardo i pacchetti più usati. Queste informazioni influenzano decisioni come quali pacchetti includere nel primo CD della distribuzione.
+ .
+ Se si sceglie di partecipare, l'invio automatico avverrà una volta alla settimana, inviando le statistiche agli sviluppatori del sistema operativo. Le statistiche possono essere visualizzate su: https://popcon.debian.org/.
+ .
+ La scelta fatta qui può essere successivamente modificata eseguendo il comando «dpkg-reconfigure popularity-contest».
+Description-ja.UTF-8: Debian パッケージ利用調査に参加しますか?
+ このシステムであなたが最も利用したパッケージについての統計をディストリビューション開発者に匿名で提供するようシステムを設定できます。この情報は私たちが 1 番目の配布 CD に入れるべきパッケージであるかどうかなどを決定する際に役立ちます。
+ .
+ 参加することを選ぶと、自動提出スクリプトが毎週 1 回自動的に実行され、ディストリビューション開発者に統計が送られます。収集された統計は、https://popcon.debian.org/ で見ることができます。
+ .
+ この決定は、あとでいつでも "dpkg-reconfigure popularity-contest" を実行して変更できます。
+Description-ka.UTF-8: ჩაერთვებით პაკეტთა გამოყენების კვლევაში?
+ სისტემამ პაკეტის დისტრიბუტორებს ამ სისტემაზე ხშირად გამოყენებულ პაკეტთა სტატისტიკას ანონიმურად მიაწვდის.  ეს ინფორმაცია ზეგავლენას იქონიებს, თუ რომელი პაკეტების მოთავსება აჯობებს დისტრიბუციის პირველ CD-ზე.
+ .
+ თუ მიიღებთ მონაწილეობას, ავტომატურად გადაგზავნის სკრიფტი კვირაში ერთხელ გაეშვება და სტატისტიკას დისტრიბუციის დეველოპერებს გადაუგზავნის. სტატისტიკები ქვეყნდება მისამართზე: https://popcon.debian.org/.
+ .
+ არჩევანის შეცვლა შესაძლებელია ბრძანებით: „dpkg-reconfigure popularity-contest“.
+Description-kk.UTF-8: Дестелерді қолдану сауалдамасына қатысуды қалайсыз ба?
+ Жүйе сіздің атыңызды қолданбай-ақ, дистрибутив шығарушыларға дестелер қолдануының статистикасын жібере алады. Бұл ақпарат оларға қандай дестелерді дистрибутивтің бірінші CD дискіне салу керек сияқты есептерді шешуге көмектеседі.
+ .
+ Егер Сіз қатысуды таңдасаңыз, статистикалық деректер автоматты түрде әр апта сайын дистрибутив шығарушыларға жіберіліп тұрады. Жиналған статистиканы мына жерден көруге болады: https://popcon.debian.org/.
+ .
+ Таңдауыңызды кейін "dpkg-reconfigure popularity-contest" командасын орындау арқылы өзгерте аласыз.
+Description-km.UTF-8: ចូល​រួម​ក្នុង​ការ​ស្ទង់មតិ​ក្នុង​ប្រើ​កញ្ចប់ ?
+ ប្រព័ន្ធ​អាច​ផ្ដល់​ទៅ​អ្នក​អភិវឌ្ឍន៍​ចែកចាយ​ដោយ​អនាមិក​រួមជា​មួយ​នឹង​ស្ថិតិ​អំពី​កញ្ចប់​ដែល​បាន​ប្រើ​ច្រើន​បំផុត​នៅ​ក្នុង​ប្រព័ន្ធ ។  ព័ត៌មាន​នេះ​មាន​ឥទ្ធិពល​លើ​ការ​សម្រេច​ចិត្ត ដូច​ជា​កញ្ចប់​មួយណា​គួរ​នៅ​លើ​គេ​ក្នុង​ការ​ចែកចាយ​ស៊ីឌី ។
+ .
+ ប្រសិន​បើ​អ្នក​ជ្រើស​ដើម្បី​ចូល​រួម ស្គ្រីប​ចែកចាយ​ដោយ​ស្វ័យប្រវត្តិ​នឹង​រត់​ម្ដង​ក្នុង​មួយ សប្ដាហ៍ ការ​ផ្ញើ​ស្ថិតិ​ទៅ​អភិវឌ្ឍន៍​ចែកចាយ ។ ស្ថិតិ​ដែល​បាន​ប្រមូលផ្ដុំ​អាច​ត្រូវ​បាន​មើល​នៅ​លើ https://popcon.debian.org/ ។
+ .
+ ជម្រើសនេះអាចត្រូវបានកែប្រែនៅពេលក្រោយដោយរត់ "dpkg-reconfigure popularity-contest" ។
+Description-kn.UTF-8: ಪ್ಯಾಕೇಜ್ ಬಳಕೆಯ ಬಗ್ಗೆ ಸಮೀಕ್ಷೆಯಲ್ಲಿ  ಪಾಲ್ಗೊಳ್ಳುತ್ತೀರಾ ?
+ ಈ ತಂತ್ರಾಂಶವು ಯಾವ್ಯಾವ ಪ್ಯಾಕೇಜುಗಳನ್ನು ಎಷ್ಟು ಬಳಸಲಾಗಿದೆ ಎಂಬ ಮಾಹಿತಿಯನ್ನು ಮಾತ್ರ ತಯಾರಕರಿಗೆ ನೀಡುತ್ತದೆ. ಇದನ್ನು ಕೇವಲ ಯಾವ ಪ್ಯಾಕೇಜುಗಳನ್ನು ಮೊದಲ ಹಂಚಿಕೆ (ಡಿಸ್ಟ್ರಿಬ್ಯೂಷನ್) ಸೀಡೀಯಲ್ಲಿ ಹಂಚಬೇಕು ಎಮ್ಬ ನಿರ್ಧಾರಕ್ಕೆ ಬಳಸಲಾಗುತ್ತದೆ.
+ .
+ ಭಾಗವಹಿಸಲು ನೀವು ಒಪ್ಪಿದಲ್ಲಿ, ವಾರಕ್ಕೊಮ್ಮೆ ಬಳಕೆಯ ಮಾಹಿತಿಯನ್ನು ತಯಾರಕರಿಗೆ ಕಳಿಸಲಾಗುತ್ತದೆ.ಆ ಮಾಹಿತಿಯನ್ನು https://popcon.debian.orgಯಲ್ಲಿ ನೋಡಬಹುದು.
+ .
+ ಈ ಆಯ್ಕೆಯನ್ನು ನಂತರ ಬದಲಿಸಬಹುದು.ಆಯ್ಕೆ ಬದಲಿಸಲು ಕೆಳಗಿನ ಕಮಾಂಡ್ ಟೈಪ್ ಮಾಡಿ."dpkg-reconfigure popularity-contest"
+Description-ko.UTF-8: 패키지 인기 투표에 참여하시겠습니까?
+ 가장 많이 사용하는 패키지에 대한 통계를 배포판 개발자들에게 익명으로 보낼 수 있습니다.  이 정보는 첫번째 배포판 CD에 어떤 패키지를 넣을 것인가와 같은 결정을 하는 데 이용합니다.
+ .
+ 참가하시면 매 주 자동으로 스크립트를 실행해서 배포판 개발자들에게 통계 자료를 제출합니다. 수집한 통계자료는 https://popcon.debian.org/에서 볼 수 있습니다.
+ .
+ 이 결정은 다음 명령을 실행하면 언제든지 변경할 수 있습니다: "dpkg-reconfigure popularity-contest"
+Description-lt.UTF-8: Ar dalyvauti paketų naudojimo statistikoje?
+ Sistema gali anonimiškai siųsti distribucijos kūrėjams dažniausiai naudojamų paketų šiame kompiuteryje statistiką. Ši informacija praverčia priimant sprendimus, pavyzdžiui, kurie paketai turėtų būti įtraukti į pirmąjį distribucijos CD.
+ .
+ Jei nuspręsite dalyvauti, kartą per savaitę bus automatiškai paleidžiamas scenarijus, siųsiantis statistinius duomenis distribucijos kūrėjams. Surinktą statistiką galima rasti adresu https://popcon.debian.org/.
+ .
+ Savo sprendimą dėl dalyvavimo vėliau galėsite pakeisti, įvykdydami komandą „dpkg-reconfigure popularity-contest“.
+Description-lv.UTF-8: Piedalīties pakotņu izmantošanas aptaujā?
+ Sistēma var anonīmi dot distribūcijas izstrādātājiem statistiku par visvairāk lietotajām pakotnēm uz sistēmas. Šī informācija ietekmē lēmumus par to, kādās pakotnes iekļaut pirmajā distribūcijas CD.
+ .
+ Ja izvēlēsities piedalīties, automātiskais sūtīšanas skripts tiks palaists katru nedēļu, sūtot statistiku distribūcijas izstrādātājiem. Ievākto statistiku var redzēt vietnē https://popcon.debian.org/.
+ .
+ Šo izvēli var vēlāk mainīt ar komandu "dpkg-reconfigure popularity-contest".
+Description-mk.UTF-8: Сакате ли да учествувате во анкетата за користење на пакети?
+ Можете да направите Вашиот систем анонимно да доставува статистики до развојните тимови за најчесто користените пакети. Овие информации влијаат на одлуките кои пакети ќе се стават на првиот диск од дистрибуцијата.
+ .
+ Ако одлучите да учествувате, скриптата за автоматско поставување ќе се извршува еднаш неделно и ќе праќа статистики од развојниот тим на дистрибуцијата. Собраните податоци можат да се гледаат на https://popcon.debian.org/.
+ .
+ Изборот може да биде променет подоцна со „dpkg-reconfigure popularity-contest“.
+Description-ml.UTF-8: പാക്കേജ് ഉപയോഗ സര്‍വേ  യില്‍ പങ്കെടുക്കണോ?
+ ഈ സിസ്റ്റത്തിലെ ഏറ്റവും കൂടുതല്‍ ഉപയോഗിക്കുന്ന പാക്കേജുകളുടെ കണക്കുകള്‍ ഇതു വഴി ഡിസ്ട്രിബ്യൂഷന്‍ ഡെവലപ്പേര്സിന് നിങ്ങളേക്കുറിച്ചുള്ള വിവരങ്ങള്‍ വെളിപ്പെടുത്താതെ തന്നെ ലഭ്യമാക്കിയെക്കാം. ഈ വിവരം ഏത് പാക്കേജുകളാണ് ആദ്യത്തെ സിഡിയില്‍ പോകേണ്ടത് എന്നത് പോലെയുള്ള തീരുമാനങ്ങളെ സ്വാധീനിക്കും.
+ .
+ നിങ്ങള്‍ പങ്കെടുക്കാന്‍ തിരഞ്ഞെടുക്കുകയാണെങ്കില്‍ സ്വയമേ സമര്പിക്കുന്ന സ്ക്രിപ്റ്റ് ആഴ്ചയിലൊരു തവണ ഓടി ഡിസ്ട്രിബ്യൂഷന്‍ ഡെവലപ്പേര്സിന് കണക്കുകള്‍ അയക്കും. ശേഖരിച്ച കണക്കുകള്‍ https://popcon.debian.org/ ല്‍ കാണാം.
+ .
+ "dpkg-reconfigure popularity-contest" എന്നോടിച്ച് ഈ ചോയിസ് പിന്നീട് മാറ്റാവുന്നതാണ്.
+Description-mr.UTF-8: पॅकेज सर्वेक्षणात सहभागी होणार का?
+ हि सिस्टिम सर्वात जास्त वापरले गेलेली पॅकेजेसचि आकडेवारी अनामिकपणे वितरण डेव्हलपरकडे पाठवु शकते. हि माहिती कोणती पॅकेजेस प्रथम वितरण सीडीवर उपलब्ध असावीत ह्याचा निर्णय घेण्यास मदत करते.
+ .
+ जर तुम्ही सहभागी होणार असाल तर, स्वयंचलीत स्क्रिप्ट/परिभाषा आठवडयातुन एकदा क्रियाशील होईल आणि ते वितरण डेव्हलपरकडे पाठविले जाईल. जमा झालेली आकडेवारी https://popcon.debian.org/ वर पाहता येईल.
+ .
+ हा पर्याय "dpkg-reconfigure लोकप्रियता स्पर्धा" या आज्ञेद्वारा बदलता येऊ शकतो.
+Description-nb.UTF-8: Delta i pakkebrukskartleggingen?
+ Systemet kan anonymt forsyne distribusjonsutviklerne med statistikk om de mest brukte pakkene på dette systemet.  Denne informasjonen påvirker avgjørelser som for eksempel hvilke pakker som bør bli med på den første distribusjons-CDen.
+ .
+ Hvis du velger å delta, så vil et automatisk innsendingsskript kjøre en gang i uka for å sende statistikk til distribusjonsutviklerne.  Den innsamlede statistikken kan ses på https://popcon.debian.org/.
+ .
+ Dette valget kan senere endres ved å kjøre «dpkg reconfigure popularity-contest».
+Description-ne.UTF-8: प्याकेज उपयोग सर्वेक्षणमा भाग लिनुहुन्छ ?
+ प्रणालीले यस प्रणालीमा सबैभन्दा बढी प्रयोग हुने प्याकेजहरूको तथ्याङ्कहरू वितरण विकासकर्ताहरूलाई अज्ञात रूपमा पठाउन सक्छ यो सुचनाले कुन कुन प्याकेजहरू पहिलो वितरण सी डी मा  जानुपर्छ भन्ने कुरा निर्णय गर्न प्रोत्साहित गर्दछ ।
+ .
+ यदि तपाईँले भाग लिनका लागि रोज्नुभयो भने, वितरण विकासकर्ताहरूलाई तथ्याङ्क पठाउँदै स्वाचालित दाखिला स्क्रिप्ट हरेक हप्तामा एक पटक चल्छ।तथ्याङ्क https://popcon.debian.org/ मा हेर्न सकिन्छ ।
+ .
+  यो रोजाइ "dpkg-reconfigure popularity-contest" चलाएर पछि परिमार्जन गर्न सकिन्छ ।
+Description-nl.UTF-8: Wilt u meewerken aan het onderzoek naar het gebruik van pakketten?
+ U kunt uw systeem instellen zodat anonieme statistieken naar de ontwikkelaars van de distributie verstuurd worden. Deze statistieken hebben betrekking op welke pakketten het meest gebruikt worden, en beïnvloeden beslissingen zoals welke paketten op de eerste installatie-CD terecht komen.
+ .
+ Indien u wilt deelnemen zal eenmaal per week een script uitgevoerd worden dat de statistieken naar de ontwikkelaars stuurt. De verzamelde statistieken kunnen bekeken worden op https://popcon.debian.org/.
+ .
+ U kunt uw keuze altijd nog herzien via het commando 'dpkg-reconfigure popularity-contest'
+Description-nn.UTF-8: Delta i kartlegginga av pakkebruken i Debian?
+ Systemet kan anonymt forsyne utviklarane av distribusjonen med statistikk over dei mest brukte pakkane på dette systemet. Denne informasjonen påverkar avgjerdsler om slike ting som kva for pakkar som bør bli med på den første CDen i distribusjonen.
+ .
+ Viss du vel å delta vil det ein gong i veka automatisk bli køyrt eit skript som sender inn rapport til distribusjonsutviklarane. Den innsamla statistikken kan lesast på https://popcon.debian.org/.
+ .
+ Du kan seinare endre det du vel her ved å køyra kommandoen «dpkg-reconfigure popularity-contest».
+Description-no.UTF-8: Delta i pakkebrukskartleggingen?
+ Systemet kan anonymt forsyne distribusjonsutviklerne med statistikk om de mest brukte pakkene på dette systemet.  Denne informasjonen påvirker avgjørelser som for eksempel hvilke pakker som bør bli med på den første distribusjons-CDen.
+ .
+ Hvis du velger å delta, så vil et automatisk innsendingsskript kjøre en gang i uka for å sende statistikk til distribusjonsutviklerne.  Den innsamlede statistikken kan ses på https://popcon.debian.org/.
+ .
+ Dette valget kan senere endres ved å kjøre «dpkg reconfigure popularity-contest».
+Description-pa.UTF-8: ਕੀ ਡੇਬੀਅਨ ਪੈਕੇਜ ਹਰਮਨ ਪਿਆਰਾ ਪ੍ਰਤੀਯੋਗਤਾ ਵਿੱਚ ਭਾਗ ਲੈਣਾ ਹੈ?
+ ਤੁਸੀਂ ਆਪਣੇ ਸਿਸਟਮ ਉੱਤੇ ਆਪਣੇ ਵਲੋਂ ਆਮ ਵਰਤੇ ਡੇਬੀਅਨ ਪੈਕੇਜਾਂ ਬਾਰੇ ਜਾਣਕਾਰੀ ਨੂੰ ਡੇਬੀਅਨ ਖੋਜੀਆਂ ਨੂੰ ਭੇਜ ਸਕਦੇ ਹੋ।  ਇਹ ਜਾਣਕਾਰੀ ਨੂੰ ਡੇਬੀਅਨ ਦੀ ਪਹਿਲੀ CD ਉੱਤੇ ਰੱਖੇ ਜਾਣ ਵਾਲੇ ਪੈਕੇਜ ਦੀ ਚੋਣ ਕਰਨ ਸਮੇਂ ਵਰਤਿਆ ਜਾਵੇਗਾ।
+ .
+ ਜੇਕਰ ਤੁਸੀਂ ਭਾਗ ਲੈਣ ਦੀ ਚੋਣ ਕੀਤੀ ਤਾਂ ਹਰੇਕ ਹਫ਼ਤੇ ਇਹ ਸਵੈ-ਚਾਲਤ ਭੇਜਣ ਸਕਰਿਪਟ ਚੱਲੇਗੀ ਅਤੇ ਡੇਬੀਅਨ ਖੋਜੀਆਂ ਨੂੰ ਅੰਕੜੇ ਭੇਜੇਗੀ। ਇੱਕਠੇ ਕੀਤੇ ਅੰਕੜੇ ਤੁਸੀਂ https://popcon.debian.org/ ਉੱਤੇ ਵੇਖ ਸਕਦੇ ਹੋ।
+ .
+ ਤੁਸੀਂ ਇਹ ਫੈਸਲਾ ਕਰਨ ਉਪਰੰਤ ਕਦੇ ਵੀ ਆਪਣਾ ਮਨ ਬਦਲ ਸਕਦੇ ਹੋ "dpkg-reconfigure popularity-contest"
+Description-pl.UTF-8: Chcesz wziąć udział w konkursie na najpopularniejszy pakiet?
+ Możesz sprawić, że Twój system będzie anonimowo przesyłał deweloperom informacje o najczęściej używanych przez Ciebie pakietach. Te informacje mają wpływ na decyzję o tym jakie pakiety zostaną umieszczona na pierwszej płycie instalacyjnej.
+ .
+ Jeśli zgodzisz się na udział w tym konkursie, skrypt uruchamiany automatycznie raz w tygodniu będzie przesyłał statystyki do deweloperów dystybucji. Zebrane statystyki oglądać można pod adresem https://popcon.debian.org/.
+ .
+ Możesz w każdej chwili zmienić swoje zdanie uruchamiając później: "dpkg-reconfigure popularity-contest"
+Description-pt.UTF-8: Participar no inquérito de utilização de pacotes?
+ O seu sistema pode fornecer anonimamente, aos criadores da distribuição, estatísticas acerca dos pacotes mais utilizados neste sistema.  Esta informação influencia decisões tais como que pacotes devem ser incluídos no primeiro CD da distribuição.
+ .
+ Se escolher participar, o script de submissão automática irá correr uma vez por semana, enviando estatísticas aos criadores da distribuição. As estatísticas adquiridas podem ser vistas em https://popcon.debian.org/.
+ .
+ Esta escolha pode ser posteriormente alterada correndo "dpkg-reconfigure popularity-contest"
+Description-pt_BR.UTF-8: Participar do concurso de utilização de pacotes ?
+ O sistema pode fornecer anonimamente aos desenvolvedores da distribuição estatísticas sobre os pacotes mais utilizados em seu sistema. Esta informação influencia decisões como quais pacotes deverão ser colocados no primeiro CD da distribuição.
+ .
+ Caso você opte por participar, o script de envio automático será executado uma vez por semana, enviando as estatísticas para os desenvolvedores da distribuição. As estatísticas coletadas podem ser visualizadas em https://popcon.debian.org/.
+ .
+ Sua escolha pode ser modificada posteriormente através da execução do comando "dpkg-reconfigure popularity-contest".
+Description-ro.UTF-8: Participaţi la sondajul legat de utilizarea pachetelor?
+ Puteţi permite sistemului dvs. să trimită către programatorii distribuţiei, mesaje electronice anonime cu statistici despre cele mai utilizate pachete din sistem de către dvs. Aceste informaţii influenţează decizii precum cele legate de pachetele care ar trebui să se afle pe primul CD al distribuţiei.
+ .
+ Dacă doriţi să participaţi, scriptul de trimitere automată va rula săptămânal, trimiţând prin statistici dezvoltatorilor distribuţiei. Statisticile colectate pot fi vizualizate la https://popcon.debian.org/.
+ .
+ Această decizie poate fi schimbată oricând rulând „dpkg-reconfigure popularity-contest”.
+Description-ru.UTF-8: Участвовать в опросе популярности пакетов?
+ Система может отправлять разработчикам дистрибутива анонимные электронные сообщения с информацией о наиболее часто используемых вами пакетах в системе. Эта информация повлияет на то, какие пакеты попадут на первый CD диск дистрибутива.
+ .
+ Если вы примете участие, автоматический сценарий будет еженедельно отправлять статистику разработчикам дистрибутива. Собранную статистику можно посмотреть на https://popcon.debian.org/.
+ .
+ Вы всегда можете изменить своё решение, выполнив команду: "dpkg-reconfigure popularity-contest".
+Description-si.UTF-8: පැකේජ භාවිත සමීක්‍ෂණයට සහභාගී වේද?
+ පද්ධතිය නිකුතු සංවර්ධකයන් හට ඇවැසි භාවිත පැකේජ නිර්නාමිකව සැපයීමට ඉඩ ඇත.  මෙම තොරතුරු කුමන පැකේජය CD තැටිය සමඟ ලැබේදැයි තීරණය කරයි.
+ .
+ ඔබ සහභාගී වීමට තෝරාගත්තේ නම්. සංවර්ධකයන්ට තොරතුරු ලබාදෙන ස්වයංක්‍රීය ඇතුළත් කිරීම් විධානාවලියක් සැම සතියකම ධාවනය වනු ඇත. එක් කරගත් තොරතුරු https://popcon.debian.org/ හීදී දැකිය හැක.
+ .
+ මෙම තෝරාගැනීම පසුව "dpkg-reconfigure popularity-contest" වෙනස් කිරීම මගින් සැකසිය හැක.
+Description-sk.UTF-8: Pripojiť sa k prehľadu najpoužívanejších balíkov?
+ Môžete nechať systém, aby anonymne poskytol vývojárom distribúcie štatistiku o najviac používaných balíkoch na vašom systéme. Táto informácia pomôže v rozhodovaní, ktoré balíky by mali byť na prvom distribučnom CD.
+ .
+ Ak sa zúčastníte tohto prehľadu, raz týždenne sa spustí automatický skript, ktorý odošle štatistiku vývojárom distribúcie. Prehľad štatistických údajov si môžete pozrieť na https://popcon.debian.org/.
+ .
+ Svoje rozhodnutie môžete kedykoľvek zmeniť spustením príkazu „dpkg-reconfigure popularity-contest“.
+Description-sl.UTF-8: Želite sodelovati v anketi o uporabi programskih paketov?
+ Vaš sistem lahko anonimno oskrbuje razvijalce distribucije s statistikami o programskih paketih, ki jih najbolj uporabljate na vašem sistemu. Ta informacija vpliva na odločitev kateri paketi so vključeni na prvem CD-ju distribucije.
+ .
+ V primeru, da se odločite sodelovati, bo skripta vsak teden samodejno poslala statistike razvijalcem distribucije. Zbrana statistika je na ogled na https://popcon.debian.org/.
+ .
+ Vašo odločitev lahko vedno spremenite z: "dpkg-reconfigure popularity-contest".
+Description-sq.UTF-8: Dëshiron të marrësh pjesë në anketën e paketë-përdorimit?
+ Sistemi mund t'i dërgojë në mënyrë anonime zhvilluesve statistikat e paketave më të përdorshme të sistemit tënd.  Këto të dhëna ndikojnë në vendime si p.sh. cilat paketa duhet të përfundojnë në CD-në e parë të shpërndarjes.
+ .
+ Nëse vendos të marrësh pjesë, një script automatik do xhirojë një herë në javë, duke i dërguar statistikat zhvilluesve të shpërndarjes. Statistikat e mbledhura mund të shihen në https://popcon.debian.org/.
+ .
+ Kjo zgjedhje mund të ndryshohet më vonë duke shtypur "dpkg-reconfigure popularity-contest"
+Description-sr.UTF-8: Учествовати у статистици популарности пакета?
+ Систем може анонимно да доставља податке програмерима дистрибуције о пакетим акоји се највише користе на систему. Ова информација утиче на одлуку, као што је, који пакети ће бити на првом инсталационом диску.
+ .
+ Ако изаберете да учествујете, аутоматска скрипта ће слати статистику једном недељно програмерима дистрибуције. Сакупљена статистика може да се види на https://popcon.debian.org/.
+ .
+ Овај избор се можете променити помоћу „dpkg-reconfigure popularity-contest“.
+Description-sr@latin.UTF-8: Učestvovati u statistici popularnosti paketa?
+ Sistem može anonimno da dostavlja podatke programerima distribucije o paketim akoji se najviše koriste na sistemu. Ova informacija utiče na odluku, kao što je, koji paketi će biti na prvom instalacionom disku.
+ .
+ Ako izaberete da učestvujete, automatska skripta će slati statistiku jednom nedeljno programerima distribucije. Sakupljena statistika može da se vidi na https://popcon.debian.org/.
+ .
+ Ovaj izbor se možete promeniti pomoću „dpkg-reconfigure popularity-contest“.
+Description-sv.UTF-8: Delta i en kartläggning om användandet av Debianpaket?
+ Du kan låta ditt system anonymt skicka e-post till Debianutvecklarna med statistik om de mest använda paketen på detta system.  Denna information influerar de val som görs om vilka paket som ska hamna på den första Debian-CD:n.
+ .
+ Om du väljer att delta kommer det automatiska inlämningsskriptet att köras automatiskt veckovis och skicka statistik till Debianutvecklarna. Den insamlade statistiken kan ses på https://popcon.debian.org/.
+ .
+ Du kan alltid ändra detta val senare genom att köra "dpkg-reconfigure popularity-contest".
+Description-ta.UTF-8: கட்டு உபயோகம் குறித்த அளவீட்டீல் பங்கு பெறுகிறீர்களா ? 
+ இந்த அமைப்பில் அதிகம் உபயோகிக்கபட்ட கட்டுகள் பற்றிய புள்ளி விவரங்களை இந்த அமைப்பு நீங்கள்" "அறியாவண்ணம் விநியோக உருவாக்குனர்களுக்கு அனுப்பக்கூடும். இந்தகவல் எந்த கட்டுகள் முதலில் விநியோக" "குறுந்தகட்டில் இடம் பெறுவது என முடிவு செய்ய வழிவகுக்கும்
+ .
+ நீங்கள் பங்கு பெறுகிறீர்களெனில், தானியங்கி சமர்பிக்கும் உரை வாரமொரு முறை  செயல்படுத்தப்பட்டு,புள்ளிவிவரம் விநியோக உருவாக்குனர்களுக்கு அனுப்பப்படும். இவ்வண்ணம் சேகரிக்கப்பட்ட புள்ளிவிவரங்களைபின்வரும் இணையத்தள முகவரியில் காணலாம் https://popcon.debian.org/.
+ .
+ பின்பு இந்த தேர்வினை மாற்ற   "dpkg-reconfigure popularity- கட்டளையை இயக்கம்.contest".
+Description-te.UTF-8: ప్యాకేజీల వాడుక సర్వేలో పాల్గొంటారా?
+ ఈ వ్యవస్థలోఎక్కువగా ఉపయోగించే ప్యాకేజీల గురించి గణాంకాలను దీని తయారీదార్లకు ఈ వ్యవస్థ అనామకంగా పంపిస్తుంది. ఈ సమాచారం మెదటి పంపిణీ CDలో ఏయే ప్యాకేజీలు ఉండాలో మరియు  తదితర నిర్ణయాలకు తోడ్పడుతుంది.
+ .
+ మీరు పాల్గొనాలని నిశ్చయించుకుంటే, ఈ ఆటోమెటిక్ స్క్రిప్టు వారానికి ఒక సారి నడుస్తూ గణాంకాలను తయారీదార్లకు పంపిస్తుంది. ఇలా సేకరించిన గణాంకాలని  https://popcon.debian.org/ వద్ద చూడవచ్చు.
+ .
+ మీ ఎంపికని తర్వాత ఎప్పుడైనా "dpkg-reconfigure popularity-contest" ని నడిపి మార్చుకోవచ్చు.
+Description-th.UTF-8: เข้าร่วมการสำรวจการใช้งานแพกเกจหรือไม่?
+ ระบบของคุณอาจให้ข้อมูลสถิติแบบนิรนามกับนักพัฒนาดิสทริบิวชัน เกี่ยวกับแพกเกจที่คุณใช้มากที่สุดได้ ข้อมูลดังกล่าวจะมีผลต่อการตัดสินใจบางอย่าง เช่น การคัดเลือกแพกเกจที่จะเข้าไปอยู่ในซีดีแผ่นแรกของดิสทริบิวชัน เป็นต้น
+ .
+ ถ้าคุณเลือกที่จะเข้าร่วม สคริปต์ส่งข้อมูลอัตโนมัติจะทำงานสัปดาห์ละครั้ง โดยส่งข้อมูลสถิติไปยังนักพัฒนาดิสทริบิวชัน ซึ่งข้อมูลสถิติที่รวบรวมไว้ทั้งหมดสามารถดูได้ที่ https://popcon.debian.org/
+ .
+ การเลือกนี้ สามารถเปลี่ยนได้ในภายหลัง โดยเรียกคำสั่ง "dpkg-reconfigure popularity-contest"
+Description-tl.UTF-8: Makikilahok ba tayo sa pagsusuri ng paggamit ng mga pakete?
+ Maaring ipadala ng anonima ng inyong sistema sa mga debeloper ng inyong pamudmod ng mga estadistika tungkol sa mga pakete na madalas gamitin sa sistemang ito. Ang mga impormasyong nakakalap sa paraang ito ay nakakaimpluwensya sa pagdesisyon kung ano ang mga paketeng isinasama sa unang CD ng pamudmod.
+ .
+ Kung pipiliin niyong makilahok, ang awtomatikong script sa pagpasa ay tatakbo minsan sa isang linggo, at magpapadala ng estadistika sa mga debeloper ng pamudmod. Ang natipon na estadistika ay maaaring makita sa https://popcon.debian.org/.
+ .
+ Maaaring baguhin ang pinili ninyo sa pagpapatakbo ng:  "dpkg-reconfigure popularity-contest"
+Description-tr.UTF-8: Paket kullanım anketine katılmak ister miydiniz?
+ Bu sistemde en çok kullanılan paketler hakkındaki istatistiksel bilgiler isimsiz (anonim) şekilde dağıtım geliştiricilerine iletilebilir. Bu bilgiler, dağıtımın birinci CD'si içinde olması gereken paketlerin belirlenmesi gibi bazı kararlar üzerinde etkili olacaktır.
+ .
+ Katılmak isterseniz otomatik gönderim betiği haftada bir kez çalışacak ve toplanan istatistikleri dağıtım geliştiricilerine gönderecektir. Bu istatistiklere https://popcon.debian.org/ adresinden erişilebilir.
+ .
+ Burada yapılan seçim, "dpkg-reconfigure popularity-contest" komutu çalıştırılarak daha sonra değiştirilebilir.
+Description-ug.UTF-8: بوغچا ئىشلىتىشنى تەكشۈرۈشكە قاتنىشامسىز؟
+ سىستېما ئاتسىز ئۇسۇلدا تارقىتىش نەشرىنىڭ ئىجادكارلىرىغا مەزكۇر سىستېمىدىكى ئەڭ كۆپ ئىشلىتىلىدىغان بوغچىلارنىڭ ستاتىستىكا سانلىق مەلۇماتىنى دوكلات قىلىدۇ. بۇ ئۇچۇرلار قايسى بوغچىلارنىڭ تارقىتىلغان نەشرىنىڭ بىرىنچى نۇر دىسكىسىدا بولۇشىغا تەسىر كۆرسىتىدۇ.
+ .
+ ئەگەر تەكشۈرۈشكە قاتنىشىشنى تاللىسىڭىز، ئۆزلۈكىدىن تاپشۇرۇش قوليازمىسى ھەر ھەپتىدە ئۆزلۈكىدىن بىر قېتىم ئىجرا قىلىنىپ، ستاتىستىكا سانلىق مەلۇماتىنى تارقىتىش نەشرىنىڭ ئىجادكارلىرىغا يوللايدۇ. توپلىغان ستاتىستىكا سانلىق مەلۇماتلىرىنى https://popcon.debian.org/ دىن كۆرۈشكە بولىدۇ.
+ .
+ سەل تۇرۇپ “dpkg-reconfigure popularity-contest” ئىجرا قىلىش ئارقىلىق بۇ تاللانمىنى ئۆزگەرتكىلى بولىدۇ.
+Description-uk.UTF-8: Приймати участь в опитуванні про використання пакунків?
+ Система може анонімно відправляти статистику про пакунки, які найчастіше використовуються, до розробників дистрибутиву. Ця інформація впливатиме на рішення на кшталт які пакунки повинні знаходитись на першому CD.
+ .
+ Якщо ви вирішите взяти участь, то скрипт автоматичного відсилання буде запускатися один раз на тиждень, відправляючи статистику розробникам дистрибутиву. Отриману статистику можна переглянути на https://popcon.debian.org/.
+ .
+ Вибір можна змінити пізніше запустивши „dpkg-reconfigure popularity-contest“.
+Description-vi.UTF-8: Tham gia vào Cuộc thi phổ biến gói Debian không?
+ Có thể gửi thư điện tử giấu tên cho các nhà phát triển bản phát hành thống kê về những gói chương trình thường dùng trên hệ thống này. Thông tin này giúp giải quyết một số vấn đề như chọn gói chương trình cho đĩa CD bản phát hành đầu tiên.
+ .
+ Nếu quyết định tham gia, một tập lệnh đệ trình sẽ tự động chạy hàng tuần, để gửi thống kê tới các nhà phát triển bản phát hành. Có thể xem thống kế được tập hợp tại « https://popcon.debian.org/ ».
+ .
+ Luôn luôn có thể thay đổi ý muốn sau này bằng cách chạy lệnh cấu hình lại: « dpkg-reconfigure popularity-contest ».
+Description-wo.UTF-8: Ndax dangay bokk ci gëstu biñuy def ci ñiy fëfandikoo paket bi?
+ Sistem bi mannaa jox ñiy liggéey distribusioŋ bi ay estatistik yu aju ci paket yi ñuy gëna jëfandikoo ci sistem bi.  Yoo xamxam dana am jeexiit ci yenn dogal yiñuy jël yu deme neki yan paket ñooy nekk ci CD bu jëkk bu distribusioŋ bi.
+ .
+ Boo bëgée bokk, konn amna ab eskript boo xam ne ayakbis gune danañu yónnée ay estatistik jëmaleko ci ñiy liggéey distribusioŋ bi. Estatistik yiñu dajale maneesnaleena gis ci https://popcon.debian.org/.
+ .
+ Bii tann dangako mana soppiwaat ginnaaw bi boo doxalee "dpkg-reconfigure popularity-contest".
+Description-zh_CN.UTF-8: 您要参加软件包流行度调查吗？
+ 系统将以匿名方式向发行版开发人员报告本系统中您最常使用的软件包的统计数据。这些信息将会影响关于哪些软件包应该被包含在第一张发行版光盘上的决定。
+ .
+ 如果您选择参与调查，自动提交脚本程序将会每周自动运行一次，将统计数据发送给发行版开发人员。已收集到的统计数据可以在 https://popcon.debian.org/ 上看到。
+ .
+ 稍候您也可以通过运行“dpkg-reconfigure popularity-contest”来改变这个选择。
+Description-zh_TW.UTF-8: 是否要參加套件使用狀況調查？
+ 這套系統可以匿名得向負責發行版本的開發人員提交系統中所最常使用的套件的統計資訊。這些資訊將有助於決定像是要將哪些套件放到第一張 Debian 光碟中。
+ .
+ 如果您決定要參與，自動提交的 Script 將會每週一次，將統計數據傳送給負責發行版本的開發人員。而這些被收集的資料您可以到 https://popcon.debian.org/ 上查閱。
+ .
+ 您可以在日後執行『dpkg-reconfigure popularity-contest』來修改這些設定。
+
+Template: popularity-contest/submiturls
+Type: string
+Description: for internal use
+ Preseed this during installation to replace the URL used for
+ submitting reports.
