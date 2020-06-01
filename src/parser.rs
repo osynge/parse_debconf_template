@@ -80,8 +80,18 @@ pub(crate) fn locale_country_bg(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("bg")(i)
 }
 
+pub(crate) fn locale_country_ca(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("ca")(i)
+}
+
 pub(crate) fn locale_country_cs(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("cs")(i)
+}
+
+pub(crate) fn locale_country_c(i: &str) -> IResult<&str, &str> {
+    let mut alternatives = alt((complete(locale_country_ca), complete(locale_country_cs)));
+    let (i, line) = alternatives(i)?;
+    Ok((i, line))
 }
 
 pub(crate) fn locale_country_da(i: &str) -> IResult<&str, &str> {
@@ -187,7 +197,7 @@ pub(crate) fn locale_country_vi(i: &str) -> IResult<&str, &str> {
 fn locale_country(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
         complete(locale_country_bg),
-        complete(locale_country_cs),
+        complete(locale_country_c),
         complete(locale_country_d),
         complete(locale_country_es),
         complete(locale_country_eu),
