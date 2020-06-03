@@ -2,6 +2,7 @@ use core::option;
 use indoc::indoc;
 use nom::branch::alt;
 use nom::bytes::complete::tag;
+use nom::bytes::complete::take_while1;
 use nom::combinator::complete;
 use nom::combinator::peek;
 use nom::multi::many0;
@@ -17,6 +18,10 @@ pub(crate) fn key_template(i: &str) -> IResult<&str, &str> {
 
 pub(crate) fn key_type(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("Type")(i)
+}
+
+pub(crate) fn key_choices(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("Choices")(i)
 }
 
 pub(crate) fn key_default(i: &str) -> IResult<&str, &str> {
@@ -288,6 +293,47 @@ fn line_parser_type(i: &str) -> IResult<&str, &str> {
     Ok((i, template_type))
 }
 
+fn is_choices_char(c: char) -> bool {
+    match c {
+        '\n' => false,
+        ',' => false,
+        _ => true,
+    }
+}
+
+fn line_parser_choices_default(i: &str) -> IResult<&str, Vec<&str>> {
+    let (i, _) = key_choices(i)?;
+    let (i, _) = delimiter_key_value(i)?;
+    let (i, (choices)) = separated_list0(tag(", "), take_while1(is_choices_char))(i)?;
+    Ok((i, choices))
+}
+
+fn line_parser_choices_locales(i: &str) -> IResult<&str, (&str, &str, Vec<&str>)> {
+    let (i, _) = key_choices(i)?;
+    let (i, _) = delimiter_description_locale(i)?;
+    let (i, country) = locale_country(i)?;
+    let (i, _) = delimiter_locale_country_encoding(i)?;
+    let (i, encoding) = locale_encoding(i)?;
+    let (i, _) = delimiter_key_value(i)?;
+    let (i, (choices)) = separated_list0(tag(", "), take_while1(is_choices_char))(i)?;
+    Ok((i, (country, encoding, choices)))
+}
+
+fn line_parser_choices_locales_all(i: &str) -> IResult<&str, Vec<(&str, &str, Vec<&str>)>> {
+    separated_list0(tag("\n"), line_parser_choices_locales)(i)
+}
+
+fn line_parser_choices_all(i: &str) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>)> {
+    let mut tpl = tuple((
+        line_parser_choices_default,
+        delimiter_line,
+        line_parser_choices_locales_all,
+    ));
+    let (i, (line, _, details)) = tpl(i)?;
+
+    Ok((i, (line, details)))
+}
+
 fn line_parser_default(i: &str) -> IResult<&str, &str> {
     let (i, _) = key_default(i)?;
     let (i, _) = delimiter_key_value(i)?;
@@ -390,7 +436,7 @@ fn line_parser_decription_sections_all(
     Ok((i, (title, lines, locales)))
 }
 
-fn section_parser_defaulted(
+fn section_parser_choice_defaulted(
     i: &str,
 ) -> IResult<
     &str,
@@ -398,6 +444,7 @@ fn section_parser_defaulted(
         &str,
         &str,
         &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
         Option<&str>,
         &str,
         Vec<&str>,
@@ -407,6 +454,8 @@ fn section_parser_defaulted(
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
     let (i, (template_type)) = line_parser_type(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, choices) = line_parser_choices_all(i)?;
     let (i, _) = delimiter_line(i)?;
     let (i, template_default) = line_parser_default(i)?;
     let (i, _) = delimiter_line(i)?;
@@ -418,6 +467,7 @@ fn section_parser_defaulted(
             package,
             section,
             template_type,
+            Some(choices),
             Some(template_default),
             decription_title,
             decription_lines,
@@ -426,7 +476,7 @@ fn section_parser_defaulted(
     ))
 }
 
-fn section_parser_nodefault(
+fn section_parser_choice_nodefault(
     i: &str,
 ) -> IResult<
     &str,
@@ -434,6 +484,45 @@ fn section_parser_nodefault(
         &str,
         &str,
         &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
+        Option<&str>,
+        &str,
+        Vec<&str>,
+        Vec<(&str, &str, &str, Vec<&str>)>,
+    ),
+> {
+    let (i, (package, section)) = line_parser_template(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (template_type)) = line_parser_type(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, choices) = line_parser_choices_all(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (decription_title, decription_lines, decription_locales)) =
+        line_parser_decription_sections_all(i)?;
+    Ok((
+        i,
+        (
+            package,
+            section,
+            template_type,
+            Some(choices),
+            None,
+            decription_title,
+            decription_lines,
+            decription_locales,
+        ),
+    ))
+}
+
+fn section_parser_defaulted(
+    i: &str,
+) -> IResult<
+    &str,
+    (
+        &str,
+        &str,
+        &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
         Option<&str>,
         &str,
         Vec<&str>,
@@ -455,6 +544,45 @@ fn section_parser_nodefault(
             section,
             template_type,
             None,
+            Some(template_default),
+            decription_title,
+            decription_lines,
+            decription_locales,
+        ),
+    ))
+}
+
+fn section_parser_nodefault(
+    i: &str,
+) -> IResult<
+    &str,
+    (
+        &str,
+        &str,
+        &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
+        Option<&str>,
+        &str,
+        Vec<&str>,
+        Vec<(&str, &str, &str, Vec<&str>)>,
+    ),
+> {
+    let (i, (package, section)) = line_parser_template(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (template_type)) = line_parser_type(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, template_default) = line_parser_default(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (decription_title, decription_lines, decription_locales)) =
+        line_parser_decription_sections_all(i)?;
+    Ok((
+        i,
+        (
+            package,
+            section,
+            template_type,
+            None,
+            None,
             decription_title,
             decription_lines,
             decription_locales,
@@ -470,6 +598,7 @@ fn section_parser(
         &str,
         &str,
         &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
         Option<&str>,
         &str,
         Vec<&str>,
@@ -477,6 +606,8 @@ fn section_parser(
     ),
 > {
     let mut alternatives = alt((
+        complete(section_parser_choice_defaulted),
+        complete(section_parser_choice_nodefault),
         complete(section_parser_defaulted),
         complete(section_parser_nodefault),
     ));
@@ -492,6 +623,7 @@ fn template_parser(
         &str,
         &str,
         &str,
+        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
         Option<&str>,
         &str,
         Vec<&str>,
@@ -530,6 +662,94 @@ mod tests {
             Ok((i, template_type)) => {
                 println!("template_type {:?}", template_type);
                 assert!(template_type == "boolean");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_test_line_parser_choices_default() {
+        let line = templates::getlines(&templates::apt_listchanges(), 3, 3);
+        match line_parser_choices_default(&line) {
+            Ok((i, choices)) => {
+                println!("choices {:?}", choices);
+                assert!(
+                    choices
+                        == vec![
+                            "pager",
+                            "browser",
+                            "xterm-pager",
+                            "xterm-browser",
+                            "gtk",
+                            "text",
+                            "mail",
+                            "none"
+                        ]
+                );
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_test_line_parser_choices_locales() {
+        let line = templates::getlines(&templates::apt_listchanges(), 4, 4);
+        match line_parser_choices_locales(&line) {
+            Ok((i, (country, encoding, choices))) => {
+                println!("choices {:?}", choices);
+                assert!(
+                    choices
+                        == vec![
+                            "paginador",
+                            "navegador",
+                            "paginador-xterm",
+                            "navegador-xterm",
+                            "gtk",
+                            "text",
+                            "correu",
+                            "cap"
+                        ]
+                );
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_line_parser_choices_locales_all() {
+        let line = templates::getlines(&templates::apt_listchanges(), 4, 9999);
+        match line_parser_choices_locales_all(&line) {
+            Ok((i, choices)) => {
+                println!("choices {:?}", choices);
+                println!("choices len {:?}", choices.len());
+                assert!(choices.len() == 23);
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_line_parser_choices_all() {
+        let line = templates::getlines(&templates::apt_listchanges(), 3, 26);
+        match line_parser_choices_all(&line) {
+            Ok((i, (choices, locales))) => {
+                println!("choices {:?}", choices);
+                println!("choices len {:?}", choices.len());
+                println!("locales len {:?}", locales.len());
+                assert!(choices.len() == 8);
+                assert!(locales.len() == 23);
             }
             Err(err) => {
                 println!("err {:?}", err);
@@ -609,7 +829,7 @@ mod tests {
 
     #[test]
     fn test_line_parser_decription_line_blank() {
-        let line = templates::getlines(&templates::dash(), 5, 5);
+        let line = templates::getlines(&templates::dash(), 5, 6);
         match line_parser_decription_line_blank(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
@@ -691,6 +911,24 @@ mod tests {
         match line_parser_decription_section_locales(&line) {
             Ok((i, value)) => {
                 assert!(value == ("bg", "UTF-8","Използване на dash като системна обвивка (/bin/sh)?", vec!["Системната обвивка се използва по подразбиране от скриптовете на обвивката.", "", "Използването на dash като системна обвивка ще подобри бързодействието на системата като цяло. Тази настройка не променя обвивката на интерактивните потребители."]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_section_parser_choice_defaulted() {
+        let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 72));
+        //println!("line {:?}", line);
+
+        match section_parser_choice_defaulted(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i.len());
+                assert!(i == "");
             }
             Err(err) => {
                 println!("err {:?}", err);
@@ -787,6 +1025,37 @@ mod tests {
         match template_parser(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_apt_listchanges_all_template_parser() {
+        let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+            }
+        }
+    }
+
+    #[test]
+    fn test_apt_listchanges_after_whitespace_all_template_parser() {
+        let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
             }
