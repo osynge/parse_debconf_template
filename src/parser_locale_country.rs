@@ -8,11 +8,11 @@ fn locale_country_bg(i: &str) -> IResult<&str, &str> {
 }
 
 fn locale_country_ca(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("ca")(i)
+    tag("ca")(i)
 }
 
 fn locale_country_cs(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("cs")(i)
+    tag("cs")(i)
 }
 
 fn locale_country_c(i: &str) -> IResult<&str, &str> {
@@ -22,11 +22,11 @@ fn locale_country_c(i: &str) -> IResult<&str, &str> {
 }
 
 fn locale_country_da(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("da")(i)
+    tag("da")(i)
 }
 
 fn locale_country_de(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("de")(i)
+    tag("de")(i)
 }
 
 fn locale_country_d(i: &str) -> IResult<&str, &str> {
@@ -36,47 +36,47 @@ fn locale_country_d(i: &str) -> IResult<&str, &str> {
 }
 
 fn locale_country_es(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("es")(i)
+    tag("es")(i)
 }
 
 fn locale_country_eu(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("eu")(i)
+    tag("eu")(i)
 }
 
 fn locale_country_fi(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("fi")(i)
+    tag("fi")(i)
 }
 
 fn locale_country_fr(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("fr")(i)
+    tag("fr")(i)
 }
 
 fn locale_country_gl(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("gl")(i)
+    tag("gl")(i)
 }
 
 fn locale_country_id(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("id")(i)
+    tag("id")(i)
 }
 
 fn locale_country_it(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("it")(i)
+    tag("it")(i)
 }
 
 fn locale_country_ja(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("ja")(i)
+    tag("ja")(i)
 }
 
 fn locale_country_nb(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("nb")(i)
+    tag("nb")(i)
 }
 
 fn locale_country_nl(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("nl")(i)
+    tag("nl")(i)
 }
 
 fn locale_country_no(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("no")(i)
+    tag("no")(i)
 }
 
 fn locale_country_n(i: &str) -> IResult<&str, &str> {
@@ -90,15 +90,15 @@ fn locale_country_n(i: &str) -> IResult<&str, &str> {
 }
 
 fn locale_country_pl(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("pl")(i)
+    tag("pl")(i)
 }
 
 fn locale_country_pt_br(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("pt_BR")(i)
+    tag("pt_BR")(i)
 }
 
 fn locale_country_pt(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("pt")(i)
+    tag("pt")(i)
 }
 
 fn locale_country_p(i: &str) -> IResult<&str, &str> {
@@ -112,38 +112,38 @@ fn locale_country_p(i: &str) -> IResult<&str, &str> {
 }
 
 fn locale_country_ro(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("ro")(i)
+    tag("ro")(i)
 }
 
 fn locale_country_ru(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("ru")(i)
+    tag("ru")(i)
 }
 
 fn locale_country_sk(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("sk")(i)
+    tag("sk")(i)
 }
 
 fn locale_country_sr(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("sr")(i)
+    tag("sr")(i)
 }
 
 fn locale_country_sv(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("sv")(i)
+    tag("sv")(i)
 }
 
 fn locale_country_tr(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("tr")(i)
+    tag("tr")(i)
 }
 
 fn locale_country_vi(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("vi")(i)
+    tag("vi")(i)
 }
 fn locale_country_zh_cn(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("zh_CN")(i)
+    tag("zh_CN")(i)
 }
 
 fn locale_country_zh_tw(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("zh_TW")(i)
+    tag("zh_TW")(i)
 }
 
 fn locale_country_z(i: &str) -> IResult<&str, &str> {
