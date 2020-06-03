@@ -4,7 +4,7 @@ use nom::combinator::complete;
 use nom::IResult;
 
 fn locale_country_bg(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("bg")(i)
+    tag("bg")(i)
 }
 
 fn locale_country_ca(i: &str) -> IResult<&str, &str> {
@@ -93,7 +93,7 @@ fn locale_country_pl(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("pl")(i)
 }
 
-fn locale_country_pt_BR(i: &str) -> IResult<&str, &str> {
+fn locale_country_pt_br(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("pt_BR")(i)
 }
 
@@ -104,7 +104,7 @@ fn locale_country_pt(i: &str) -> IResult<&str, &str> {
 fn locale_country_p(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
         complete(locale_country_pl),
-        complete(locale_country_pt_BR),
+        complete(locale_country_pt_br),
         complete(locale_country_pt),
     ));
     let (i, line) = alternatives(i)?;
@@ -138,18 +138,18 @@ fn locale_country_tr(i: &str) -> IResult<&str, &str> {
 fn locale_country_vi(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("vi")(i)
 }
-fn locale_country_zh_CN(i: &str) -> IResult<&str, &str> {
+fn locale_country_zh_cn(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("zh_CN")(i)
 }
 
-fn locale_country_zh_TW(i: &str) -> IResult<&str, &str> {
+fn locale_country_zh_tw(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("zh_TW")(i)
 }
 
 fn locale_country_z(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
-        complete(locale_country_zh_CN),
-        complete(locale_country_zh_TW),
+        complete(locale_country_zh_cn),
+        complete(locale_country_zh_tw),
     ));
     let (i, line) = alternatives(i)?;
     Ok((i, line))
