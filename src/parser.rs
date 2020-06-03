@@ -3,6 +3,7 @@ use indoc::indoc;
 use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::combinator::complete;
+use nom::combinator::peek;
 use nom::multi::many0;
 use nom::multi::separated_list0;
 use nom::multi::separated_list1;
@@ -334,6 +335,8 @@ fn line_parser_decription_line(i: &str) -> IResult<&str, &str> {
 
 fn line_parser_decription_line_blank(i: &str) -> IResult<&str, &str> {
     let (i, _) = key_description_cont_blank(i)?;
+    let (i, _) = peek(tag("\n"))(i)?;
+
     Ok((i, ""))
 }
 
