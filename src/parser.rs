@@ -140,8 +140,23 @@ pub(crate) fn locale_country_ja(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("ja")(i)
 }
 
+pub(crate) fn locale_country_nb(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("nb")(i)
+}
+
 pub(crate) fn locale_country_nl(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("nl")(i)
+}
+
+pub(crate) fn locale_country_no(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("no")(i)
+}
+
+
+pub(crate) fn locale_country_n(i: &str) -> IResult<&str, &str> {
+    let mut alternatives = alt((complete(locale_country_nb), complete(locale_country_nl), complete(locale_country_no)));
+    let (i, line) = alternatives(i)?;
+    Ok((i, line))
 }
 
 pub(crate) fn locale_country_pl(i: &str) -> IResult<&str, &str> {
@@ -193,6 +208,25 @@ pub(crate) fn locale_country_tr(i: &str) -> IResult<&str, &str> {
 pub(crate) fn locale_country_vi(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("vi")(i)
 }
+pub(crate) fn locale_country_zh_CN(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("zh_CN")(i)
+}
+
+pub(crate) fn locale_country_zh_TW(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("zh_TW")(i)
+}
+
+
+
+pub(crate) fn locale_country_z(i: &str) -> IResult<&str, &str> {
+    let mut alternatives = alt((
+        complete(locale_country_zh_CN),
+        complete(locale_country_zh_TW),
+    ));
+    let (i, line) = alternatives(i)?;
+    Ok((i, line))
+}
+
 
 fn locale_country(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
@@ -207,7 +241,7 @@ fn locale_country(i: &str) -> IResult<&str, &str> {
         complete(locale_country_id),
         complete(locale_country_it),
         complete(locale_country_ja),
-        complete(locale_country_nl),
+        complete(locale_country_n),
         complete(locale_country_p),
         complete(locale_country_ro),
         complete(locale_country_ru),
@@ -216,6 +250,7 @@ fn locale_country(i: &str) -> IResult<&str, &str> {
         complete(locale_country_sv),
         complete(locale_country_tr),
         complete(locale_country_vi),
+        complete(locale_country_z),
     ));
     let (i, line) = alternatives(i)?;
     Ok((i, line))
