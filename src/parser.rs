@@ -62,6 +62,10 @@ pub(crate) fn template_type_text(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("text")(i)
 }
 
+pub(crate) fn template_type_select(i: &str) -> IResult<&str, &str> {
+    nom::bytes::complete::tag("select")(i)
+}
+
 pub(crate) fn template_type_string(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("string")(i)
 }
@@ -69,6 +73,7 @@ pub(crate) fn template_type_string(i: &str) -> IResult<&str, &str> {
 pub(crate) fn template_type(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
         complete(template_type_boolean),
+        complete(template_type_select),
         complete(template_type_string),
         complete(template_type_text),
     ));
