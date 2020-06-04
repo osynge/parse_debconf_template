@@ -1,4 +1,9 @@
+use crate::parser_delimiters::{
+    delimiter_description_locale, delimiter_key_value, delimiter_line,
+    delimiter_locale_country_encoding, delimiter_package_section,
+};
 use crate::parser_locale_country::locale_country;
+
 use core::option;
 use indoc::indoc;
 use nom::branch::alt;
@@ -39,26 +44,6 @@ pub(crate) fn key_description_cont_blank(i: &str) -> IResult<&str, &str> {
 
 pub(crate) fn key_description_cont(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag(" ")(i)
-}
-
-pub(crate) fn delimiter_line(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("\n")(i)
-}
-
-pub(crate) fn delimiter_key_value(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag(": ")(i)
-}
-
-pub(crate) fn delimiter_package_section(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("/")(i)
-}
-
-pub(crate) fn delimiter_description_locale(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("-")(i)
-}
-
-pub(crate) fn delimiter_locale_country_encoding(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag(".")(i)
 }
 
 pub(crate) fn template_type_boolean(i: &str) -> IResult<&str, &str> {
@@ -902,5 +887,4 @@ mod tests {
             }
         }
     }
-
 }
