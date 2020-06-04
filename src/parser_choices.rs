@@ -194,4 +194,20 @@ mod tests {
             }
         }
     }
+
+    #[test]
+    fn test_debconf_s() {
+        let line = templates::getlines(&templates::debconf(), 2, 3);
+        match line_parser_choices_all(&line) {
+            Ok((i, choices)) => {
+                println!("choices {:?}", choices);
+                println!("i {:?}", i);
+                assert!(i.len() == 0);
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
 }

@@ -328,6 +328,10 @@ fn locale_country_n(i: &str) -> IResult<&str, &str> {
     Ok((i, line))
 }
 
+fn locale_country_mg(i: &str) -> IResult<&str, &str> {
+    tag("mg")(i)
+}
+
 fn locale_country_pa(i: &str) -> IResult<&str, &str> {
     tag("pa")(i)
 }
@@ -423,6 +427,9 @@ fn locale_country_tg(i: &str) -> IResult<&str, &str> {
 fn locale_country_th(i: &str) -> IResult<&str, &str> {
     tag("th")(i)
 }
+fn locale_country_tl(i: &str) -> IResult<&str, &str> {
+    tag("tl")(i)
+}
 fn locale_country_tr(i: &str) -> IResult<&str, &str> {
     tag("tr")(i)
 }
@@ -433,6 +440,7 @@ fn locale_country_t(i: &str) -> IResult<&str, &str> {
         complete(locale_country_te),
         complete(locale_country_tg),
         complete(locale_country_th),
+        complete(locale_country_tl),
         complete(locale_country_tr),
     ));
     let (i, line) = alternatives(i)?;
@@ -452,9 +460,14 @@ fn locale_country_u(i: &str) -> IResult<&str, &str> {
     Ok((i, line))
 }
 
+fn locale_country_wo(i: &str) -> IResult<&str, &str> {
+    tag("wo")(i)
+}
+
 fn locale_country_vi(i: &str) -> IResult<&str, &str> {
     tag("vi")(i)
 }
+
 fn locale_country_zh_cn(i: &str) -> IResult<&str, &str> {
     tag("zh_CN")(i)
 }
@@ -502,12 +515,14 @@ pub(super) fn locale_country_h2n(i: &str) -> IResult<&str, &str> {
 
 pub(super) fn locale_country_m2z(i: &str) -> IResult<&str, &str> {
     let mut alternatives = alt((
+        complete(locale_country_mg),
         complete(locale_country_p),
         complete(locale_country_r),
         complete(locale_country_s),
         complete(locale_country_t),
         complete(locale_country_u),
         complete(locale_country_vi),
+        complete(locale_country_wo),
         complete(locale_country_z),
     ));
     let (i, line) = alternatives(i)?;
