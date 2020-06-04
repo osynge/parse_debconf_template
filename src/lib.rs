@@ -1,6 +1,7 @@
 extern crate nom;
 
 mod parser;
+mod parser_choices;
 mod parser_delimiters;
 mod parser_description;
 mod parser_locale_country;

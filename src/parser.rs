@@ -1,3 +1,4 @@
+use crate::parser_choices::line_parser_choices_all;
 use crate::parser_delimiters::{
     delimiter_description_locale, delimiter_key_value, delimiter_line,
     delimiter_locale_country_encoding, delimiter_package_section,
@@ -26,10 +27,6 @@ pub(crate) fn key_template(i: &str) -> IResult<&str, &str> {
 
 pub(crate) fn key_type(i: &str) -> IResult<&str, &str> {
     nom::bytes::complete::tag("Type")(i)
-}
-
-pub(crate) fn key_choices(i: &str) -> IResult<&str, &str> {
-    nom::bytes::complete::tag("Choices")(i)
 }
 
 pub(crate) fn key_default(i: &str) -> IResult<&str, &str> {
@@ -87,47 +84,6 @@ fn line_parser_type(i: &str) -> IResult<&str, &str> {
     let (i, _) = delimiter_key_value(i)?;
     let (i, template_type) = template_type(i)?;
     Ok((i, template_type))
-}
-
-fn is_choices_char(c: char) -> bool {
-    match c {
-        '\n' => false,
-        ',' => false,
-        _ => true,
-    }
-}
-
-fn line_parser_choices_default(i: &str) -> IResult<&str, Vec<&str>> {
-    let (i, _) = key_choices(i)?;
-    let (i, _) = delimiter_key_value(i)?;
-    let (i, (choices)) = separated_list0(tag(", "), take_while1(is_choices_char))(i)?;
-    Ok((i, choices))
-}
-
-fn line_parser_choices_locales(i: &str) -> IResult<&str, (&str, &str, Vec<&str>)> {
-    let (i, _) = key_choices(i)?;
-    let (i, _) = delimiter_description_locale(i)?;
-    let (i, country) = locale_country(i)?;
-    let (i, _) = delimiter_locale_country_encoding(i)?;
-    let (i, encoding) = locale_encoding(i)?;
-    let (i, _) = delimiter_key_value(i)?;
-    let (i, (choices)) = separated_list0(tag(", "), take_while1(is_choices_char))(i)?;
-    Ok((i, (country, encoding, choices)))
-}
-
-fn line_parser_choices_locales_all(i: &str) -> IResult<&str, Vec<(&str, &str, Vec<&str>)>> {
-    separated_list0(tag("\n"), line_parser_choices_locales)(i)
-}
-
-fn line_parser_choices_all(i: &str) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>)> {
-    let mut tpl = tuple((
-        line_parser_choices_default,
-        delimiter_line,
-        line_parser_choices_locales_all,
-    ));
-    let (i, (line, _, details)) = tpl(i)?;
-
-    Ok((i, (line, details)))
 }
 
 fn line_parser_default(i: &str) -> IResult<&str, &str> {
@@ -370,94 +326,6 @@ mod tests {
     }
 
     #[test]
-    fn test_test_line_parser_choices_default() {
-        let line = templates::getlines(&templates::apt_listchanges(), 3, 3);
-        match line_parser_choices_default(&line) {
-            Ok((i, choices)) => {
-                println!("choices {:?}", choices);
-                assert!(
-                    choices
-                        == vec![
-                            "pager",
-                            "browser",
-                            "xterm-pager",
-                            "xterm-browser",
-                            "gtk",
-                            "text",
-                            "mail",
-                            "none"
-                        ]
-                );
-            }
-            Err(err) => {
-                println!("err {:?}", err);
-                assert!(false);
-            }
-        }
-    }
-
-    #[test]
-    fn test_test_line_parser_choices_locales() {
-        let line = templates::getlines(&templates::apt_listchanges(), 4, 4);
-        match line_parser_choices_locales(&line) {
-            Ok((i, (country, encoding, choices))) => {
-                println!("choices {:?}", choices);
-                assert!(
-                    choices
-                        == vec![
-                            "paginador",
-                            "navegador",
-                            "paginador-xterm",
-                            "navegador-xterm",
-                            "gtk",
-                            "text",
-                            "correu",
-                            "cap"
-                        ]
-                );
-            }
-            Err(err) => {
-                println!("err {:?}", err);
-                assert!(false);
-            }
-        }
-    }
-
-    #[test]
-    fn test_line_parser_choices_locales_all() {
-        let line = templates::getlines(&templates::apt_listchanges(), 4, 9999);
-        match line_parser_choices_locales_all(&line) {
-            Ok((i, choices)) => {
-                println!("choices {:?}", choices);
-                println!("choices len {:?}", choices.len());
-                assert!(choices.len() == 23);
-            }
-            Err(err) => {
-                println!("err {:?}", err);
-                assert!(false);
-            }
-        }
-    }
-
-    #[test]
-    fn test_line_parser_choices_all() {
-        let line = templates::getlines(&templates::apt_listchanges(), 3, 26);
-        match line_parser_choices_all(&line) {
-            Ok((i, (choices, locales))) => {
-                println!("choices {:?}", choices);
-                println!("choices len {:?}", choices.len());
-                println!("locales len {:?}", locales.len());
-                assert!(choices.len() == 8);
-                assert!(locales.len() == 23);
-            }
-            Err(err) => {
-                println!("err {:?}", err);
-                assert!(false);
-            }
-        }
-    }
-
-    #[test]
     fn test_line_parser_default() {
         let line = templates::getlines(&templates::dash(), 2, 2);
         match line_parser_default(&line) {
@@ -478,6 +346,27 @@ mod tests {
         //println!("line {:?}", line);
 
         match section_parser_choice_defaulted(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i.len());
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_section_parser_choice_nodefault() {
+        let mut line = String::from(templates::getlines(
+            &templates::ca_certificates(),
+            233,
+            9999,
+        ));
+        //println!("line {:?}", line);
+
+        match section_parser_choice_nodefault(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i.len());
@@ -611,6 +500,23 @@ mod tests {
                 assert!(i == "");
             }
             Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_ca_certificates_all() {
+        let mut line = String::from(templates::getlines(&templates::ca_certificates(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
                 println!("err {:?}", err);
                 assert!(false);
             }
