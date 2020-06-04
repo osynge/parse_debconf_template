@@ -33,6 +33,10 @@ pub fn console_setup<'a>() -> Cow<'a, str> {
     )));
 }
 
+pub fn cups<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!("templates/cups.templates")));
+}
+
 pub fn dash<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/dash.templates")));
 }

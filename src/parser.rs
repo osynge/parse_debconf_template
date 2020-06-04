@@ -539,4 +539,21 @@ mod tests {
             }
         }
     }
+
+    #[test]
+    fn test_cups_all() {
+        let mut line = String::from(templates::getlines(&templates::cups(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
 }
