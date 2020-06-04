@@ -8,7 +8,7 @@ use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::combinator::complete;
 use nom::combinator::peek;
-use nom::multi::separated_list0;
+use nom::multi::separated_list1;
 use nom::sequence::tuple;
 use nom::IResult;
 
@@ -85,10 +85,10 @@ fn line_parser_decription_lines_full(i: &str) -> IResult<&str, &str> {
 }
 
 fn line_parser_decription_lines_many(i: &str) -> IResult<&str, Vec<&str>> {
-    separated_list0(tag("\n"), line_parser_decription_lines)(i)
+    separated_list1(tag("\n"), line_parser_decription_lines)(i)
 }
 
-fn line_parser_decription_section(i: &str) -> IResult<&str, (&str, Vec<&str>)> {
+fn line_parser_decription_section_lines(i: &str) -> IResult<&str, (&str, Vec<&str>)> {
     let mut tpl = tuple((
         line_parser_decription_title,
         delimiter_line,
@@ -99,23 +99,75 @@ fn line_parser_decription_section(i: &str) -> IResult<&str, (&str, Vec<&str>)> {
     Ok((i, (line, details)))
 }
 
-fn line_parser_decription_section_locales(i: &str) -> IResult<&str, (&str, &str, &str, Vec<&str>)> {
+fn line_parser_decription_section_short(i: &str) -> IResult<&str, (&str, Vec<&str>)> {
+    let (i, line) = line_parser_decription_title(i)?;
+    let details = vec![];
+    Ok((i, (line, details)))
+}
+
+fn line_parser_decription_section(i: &str) -> IResult<&str, (&str, Vec<&str>)> {
+    let mut alternatives = alt((
+        complete(line_parser_decription_section_lines),
+        complete(line_parser_decription_section_short),
+    ));
+    let (i, (line, details)) = alternatives(i)?;
+    Ok((i, (line, details)))
+}
+
+fn line_parser_decription_section_locales_lines(
+    i: &str,
+) -> IResult<&str, (&str, &str, &str, Vec<&str>)> {
     let mut tpl = tuple((
         line_parser_decription_title_locales,
         delimiter_line,
         line_parser_decription_lines_many,
     ));
     let (i, ((country, encoding, title), _, details)) = tpl(i)?;
-
     Ok((i, (country, encoding, title, details)))
+}
+
+fn line_parser_decription_section_locales_short(
+    i: &str,
+) -> IResult<&str, (&str, &str, &str, Vec<&str>)> {
+    let (i, (country, encoding, title)) = line_parser_decription_title_locales(i)?;
+    let details = vec![];
+    Ok((i, (country, encoding, title, details)))
+}
+
+fn line_parser_decription_section_locales(i: &str) -> IResult<&str, (&str, &str, &str, Vec<&str>)> {
+    let mut alternatives = alt((
+        complete(line_parser_decription_section_locales_lines),
+        complete(line_parser_decription_section_locales_short),
+    ));
+    let (i, (country, encoding, title, details)) = alternatives(i)?;
+    Ok((i, (country, encoding, title, details)))
+}
+
+pub(crate) fn line_parser_decription_sections_all_locale(
+    i: &str,
+) -> IResult<&str, (&str, Vec<&str>, Vec<(&str, &str, &str, Vec<&str>)>)> {
+    let (i, (title, lines)) = line_parser_decription_section(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (locales)) = separated_list1(tag("\n"), line_parser_decription_section_locales)(i)?;
+    Ok((i, (title, lines, locales)))
+}
+
+pub(crate) fn line_parser_decription_sections_all_short(
+    i: &str,
+) -> IResult<&str, (&str, Vec<&str>, Vec<(&str, &str, &str, Vec<&str>)>)> {
+    let (i, (title, lines)) = line_parser_decription_section(i)?;
+    let locales = vec![];
+    Ok((i, (title, lines, locales)))
 }
 
 pub(crate) fn line_parser_decription_sections_all(
     i: &str,
 ) -> IResult<&str, (&str, Vec<&str>, Vec<(&str, &str, &str, Vec<&str>)>)> {
-    let (i, (title, lines)) = line_parser_decription_section(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (locales)) = separated_list0(tag("\n"), line_parser_decription_section_locales)(i)?;
+    let mut alternatives = alt((
+        complete(line_parser_decription_sections_all_locale),
+        complete(line_parser_decription_sections_all_short),
+    ));
+    let (i, (title, lines, locales)) = alternatives(i)?;
     Ok((i, (title, lines, locales)))
 }
 
@@ -261,6 +313,84 @@ mod tests {
         match line_parser_decription_section(&line) {
             Ok((i, value)) => {
                 assert!(value == ("Use dash as the default system shell (/bin/sh)?", vec!["The system shell is the default command interpreter for shell scripts.", "", "Using dash as the system shell will improve the system\'s overall", "performance. It does not alter the shell presented to interactive", "users."]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_line_parser_decription_section_short() {
+        let line = templates::getlines(&templates::ca_certificates(), 3, 6);
+        println!("line {:?}", line);
+        match line_parser_decription_section_short(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                //                assert!(value == ("", vec![]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_line_parser_decription_section() {
+        let line = templates::getlines(&templates::ca_certificates(), 3, 6);
+        println!("line {:?}", line);
+        match line_parser_decription_section(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                //                assert!(value == ("", vec![]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_line_parser_decription_section_locales() {
+        let line = templates::getlines(&templates::ca_certificates(), 4, 6);
+        println!("line {:?}", line);
+        match line_parser_decription_section_locales(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                //                assert!(value == ("", vec![]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_line_parser_decription_short() {
+        let line = templates::getlines(&templates::ca_certificates(), 3, 6);
+        println!("line {:?}", line);
+        match line_parser_decription_sections_all(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                //                assert!(value == ("", vec![]));
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_wamerican_line_parser_decription_sections_all() {
+        let mut line = String::from(templates::getlines(&templates::wamerican(), 2, 9999));
+        println!("line {:?}", line);
+        match line_parser_decription_sections_all(&line) {
+            Ok((i, value)) => {
+                assert!(value == ("", vec![], vec![]));
+                /*assert!(value == ("bg", "UTF-8","Използване на dash като системна обвивка (/bin/sh)?", vec!["Системната обвивка се използва по подразбиране от скриптовете на обвивката.", "", "Използването на dash като системна обвивка ще подобри бързодействието на системата като цяло. Тази настройка не променя обвивката на интерактивните потребители."]));*/
             }
             Err(err) => {
                 println!("err {:?}", err);

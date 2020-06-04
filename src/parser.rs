@@ -500,22 +500,6 @@ mod tests {
     }
 
     #[test]
-    fn test_wamerican_line_parser_decription_sections_all() {
-        let mut line = String::from(templates::getlines(&templates::wamerican(), 2, 9999));
-        println!(" {:?}", line);
-        match line_parser_decription_sections_all(&line) {
-            Ok((i, value)) => {
-                assert!(value == ("", vec![], vec![]));
-                /*assert!(value == ("bg", "UTF-8","Използване на dash като системна обвивка (/bin/sh)?", vec!["Системната обвивка се използва по подразбиране от скриптовете на обвивката.", "", "Използването на dash като системна обвивка ще подобри бързодействието на системата като цяло. Тази настройка не променя обвивката на интерактивните потребители."]));*/
-            }
-            Err(err) => {
-                println!("err {:?}", err);
-                assert!(false);
-            }
-        }
-    }
-
-    #[test]
     fn test_dash_all() {
         let mut line = String::from(templates::getlines(&templates::dash(), 0, 9999));
         match section_parser(&line) {
