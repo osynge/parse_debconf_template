@@ -27,6 +27,12 @@ pub fn ca_certificates<'a>() -> Cow<'a, str> {
     )));
 }
 
+pub fn console_setup<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!(
+        "templates/console-setup.templates"
+    )));
+}
+
 pub fn dash<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/dash.templates")));
 }

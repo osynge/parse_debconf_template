@@ -522,4 +522,21 @@ mod tests {
             }
         }
     }
+
+    #[test]
+    fn test_console_setup_all() {
+        let mut line = String::from(templates::getlines(&templates::console_setup(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
 }
