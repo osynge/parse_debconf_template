@@ -77,6 +77,7 @@ pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str>
 mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
     use super::*;
+    use crate::parser::template_parser;
 
     #[test]
     fn test_first_line() {
@@ -110,5 +111,182 @@ mod tests {
  performance. It does not alter the shell presented to interactive
  users."#
         );
+    }
+
+    #[test]
+    fn test_adduser_all() {
+        let mut line = String::from(getlines(&adduser(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                // Test must fail as starts with blank line
+                assert!(false);
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                //assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_adduser_all_skip_line() {
+        let mut line = String::from(getlines(&adduser(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_apparmor_all() {
+        let mut line = String::from(getlines(&apparmor(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_irqbalance_all() {
+        let mut line = String::from(getlines(&irqbalance(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_apt_listchanges_all() {
+        let mut line = String::from(getlines(&apt_listchanges(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+            }
+        }
+    }
+
+    #[test]
+    fn test_apt_listchanges_all_skip_line() {
+        let mut line = String::from(getlines(&apt_listchanges(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_base_passwd_all() {
+        let mut line = String::from(getlines(&base_passwd(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_ca_certificates_all() {
+        let mut line = String::from(getlines(&ca_certificates(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_console_setup_all() {
+        let mut line = String::from(getlines(&console_setup(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_cups_all() {
+        let mut line = String::from(getlines(&cups(), 1, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                //println!("line {:?}", line);
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
+    #[test]
+    fn test_dash_all() {
+        let mut line = String::from(getlines(&dash(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
     }
 }
