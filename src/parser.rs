@@ -272,8 +272,6 @@ fn section_parser_nodefault(
     let (i, _) = delimiter_line(i)?;
     let (i, (template_type)) = line_parser_type(i)?;
     let (i, _) = delimiter_line(i)?;
-    let (i, template_default) = line_parser_default(i)?;
-    let (i, _) = delimiter_line(i)?;
     let (i, (decription_title, decription_lines, decription_locales)) =
         line_parser_decription_sections_all(i)?;
     Ok((
@@ -548,12 +546,10 @@ mod tests {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
-                // Test must fail as starts with blank line
-                assert!(false);
             }
             Err(err) => {
                 println!("err {:?}", err);
-                //assert!(false);
+                assert!(false);
             }
         }
     }
