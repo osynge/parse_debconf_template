@@ -886,4 +886,21 @@ mod tests {
             }
         }
     }
+
+    #[test]
+    fn test_base_passwd_all() {
+        let mut line = String::from(templates::getlines(&templates::base_passwd(), 0, 9999));
+        match template_parser(&line) {
+            Ok((i, value)) => {
+                //println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+
 }
