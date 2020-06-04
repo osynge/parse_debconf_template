@@ -51,6 +51,10 @@ pub fn dictionaries_common<'a>() -> Cow<'a, str> {
     )));
 }
 
+pub fn discover<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!("templates/discover.templates")));
+}
+
 pub fn gpm<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/gpm.templates")));
 }
@@ -316,8 +320,8 @@ mod tests {
     }
 
     #[test]
-    fn test_dictionaries_common_all() {
-        let line = String::from(getlines(&dictionaries_common(), 1, 169));
+    fn test_discover_all() {
+        let line = String::from(getlines(&discover(), 0, 169));
         match template_parser(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
