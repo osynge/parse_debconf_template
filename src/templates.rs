@@ -1,12 +1,6 @@
 use std;
 use std::borrow::Cow;
 
-pub fn base_passwd<'a>() -> Cow<'a, str> {
-    return Cow::Owned(String::from(include_str!(
-        "templates/base-passwd.templates"
-    )));
-}
-
 pub fn adduser<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/adduser.templates")));
 }
@@ -18,6 +12,12 @@ pub fn apparmor<'a>() -> Cow<'a, str> {
 pub fn apt_listchanges<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/apt-listchanges.templates"
+    )));
+}
+
+pub fn base_passwd<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!(
+        "templates/base-passwd.templates"
     )));
 }
 
