@@ -21,6 +21,12 @@ pub fn base_passwd<'a>() -> Cow<'a, str> {
     )));
 }
 
+pub fn ca_certificates<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!(
+        "templates/ca-certificates.templates"
+    )));
+}
+
 pub fn dash<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/dash.templates")));
 }
