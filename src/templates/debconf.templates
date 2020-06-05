@@ -69,7 +69,7 @@ Choices-vi.UTF-8: Hộp thoại, Readline, Gnome, Kde, Trình hiệu chỉnh, Kh
 Choices-wo.UTF-8: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
 Choices-zh_CN.UTF-8: 字符对话框, 纯文本界面, Gnome, Kde, 编辑器, 非交互方式
 Choices-zh_TW.UTF-8: Dialog, Readline, Gnome, Kde, 編輯器, 非互動式
-Default: Dialog
+Defaults: Dialog
 Description: Interface to use:
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
@@ -188,7 +188,7 @@ Description-hu.UTF-8: Használandó felület:
  A debconf-ot használó csomagok egységes felületet használnak. Itt lehet kiválasztani, melyik legyen az.
  .
  A párbeszéd felület egy teljes-képernyős, karakteres felület, az egysoros viszont a sokkal hagyományosabb egyszerű szöveges felület, a gnome és kde felületek pedig korszerű X felületek, melyek e 2 munkakörnyezetbe illenek (de bármilyen X környezetben használhatók). A szerkesztő felülettel a kedvenc szövegszerkesztővel lehet dolgozni. A néma felület soha nem kérdez.
-Description-id.UTF-8: Antarmuka yang dipakai: 
+Description-id.UTF-8: Antarmuka yang dipakai:
  Paket-paket yang dikonfigurasi lewat debconf memakai antar muka yang seragam. Anda dapat memilih jenis antarmuka pengguna yang dipakai.
  .
  Antarmuka dialog berbasis karakter layar penuh, sementara bacabaris memakai teks yang lebih tradisional, baik gnome dan kde menggunakan antar muka grafis (X). Antarmuka penyunting memungkinkan anda mengkonfigurasi sesuatu dengan penyunting naskah kesayangan anda. Antarmuka tak-iteraktif tak pernah menanyakan apapun.
@@ -313,7 +313,7 @@ Description-ta.UTF-8: பயனர் பயன்படுத்த இடை�
  .
  உரையாடல் முன் முனை முழுத்திரை, எழுத்துரு கொண்ட இடைமுகமாகும்.பயனர் பயன்படுத்தும் ரீட் லைன் மேலும் பாரம்பரிய வெற்று உரை இடைமுகமாகும்.க்னோம், கேடிஈ முன்முனைகள் இரண்டும் நவீன எக்ஸ் இடைமுகங்களாகும். அவை அவற்றின் மேல்மேசை சூழலில் பொருந்தினாலும் எந்த எக்ஸ் சூழலிலும் இயங்கக்கூடும். உங்கள் அபிமான உரை திருத்தியை பயன்படுத்தி நீங்கள் வடிவமைப்பை செய்யலாம்.ஊடாடல் இல்லா முன்முனை உங்களை கேள்வியே கேட்காது!
 Description-te.UTF-8: ఉపయోగించాల్సిన అంతరవర్తి:
- అమరికలకోసం డెబ్కాన్ఫ్ ని వాడే    పాకేజీలు, ఏకరూపాన్ని, అనుభూతిని కలిగిస్తాయి. అవి  వాడే అంతరవర్తి ని(UI) ఎంచుకోవచ్చు 
+ అమరికలకోసం డెబ్కాన్ఫ్ ని వాడే    పాకేజీలు, ఏకరూపాన్ని, అనుభూతిని కలిగిస్తాయి. అవి  వాడే అంతరవర్తి ని(UI) ఎంచుకోవచ్చు
  .
   భాషణ  (Dialog)అక్షరాల  అంతర్ముఖముగా గల పూర్తి తెర రూపము, రీడ్లైన్(Readline)  సాంప్రదాయక పాఠ్య రూపము, గ్నోమ్ (Gnome), కెడిఇ(KDE)  రంగస్థలానికి సరిపడే ఆధునిక  ఎక్స్  రూపాలు (ఏ ఎక్స్ పర్యావరణంలో అయిన వాడవచ్చు). సరిచేయునది (Editor) రూపముతో  మీ కు ఇష్టమైన సరిచేయు అనువర్తనము వాడిఅమరికలు చేయవచ్చు. ప్రశ్నలు వేయక(Noninteractive) రూపము ప్రశ్నలు వేయకుండా ఏకబిగిన పనిచేయటానికి
 Description-th.UTF-8: อินเทอร์เฟซที่จะใช้:
@@ -521,9 +521,9 @@ Description-cy.UTF-8: Anwybyddu cwestiynau gyda blaenoriaeth llai na:
 Description-da.UTF-8: Ignorér spørgsmål med en prioritet lavere end:
  Debconf prioriterer de spørgsmål, den stiller dig. Vælg den laveste spørgsmåls-prioritet, du ønsker at se:
   - 'kritisk' spørger dig kun hvis systemet potentielt kommer i uorden.
-     Vælg dette, hvis du er nybegynder eller har travlt. 
-   - 'høj' for ret vigtige spørgsmål 
-   - 'mellem' for almindelige spørgmål 
+     Vælg dette, hvis du er nybegynder eller har travlt.
+   - 'høj' for ret vigtige spørgsmål
+   - 'mellem' for almindelige spørgmål
    - 'lav' for kontrolnarkomaner, der vil have alt at se
  .
  Bemærk at uanset hvilket niveau du vælger her, vil du kunne se samtlige spørgsmål, hvis du genopsætter pakken med kommandoen dpkg-reconfigure.
@@ -586,7 +586,7 @@ Description-eu.UTF-8: Ez ikusia egin hau baino lehentasun txikiagoa duten galder
    - 'kritikoa'-k sistema hondatu dezaketen galderak egingo ditu .
      Erabiltzaile berria edo presa baduzu hau aukeratu.
    - 'handia'-k galdera garrantzitsuak egingo ditu.
-   - 'ertaina'-k galdera arruntak egingo ditu. 
+   - 'ertaina'-k galdera arruntak egingo ditu.
    - 'txikia' dena ikusi nahi baduzu
  .
  Kontutan izan hemen zein aukera egiten duzun axola gabe galdera guztiak ikusi ahal izango dituzula paketea dpkg-reconfigure erabiliaz konfiguratzen baduzu.
@@ -680,7 +680,7 @@ Description-hu.UTF-8: A kevésbé fontos kérdések átugrása, mint:
    - Az 'alacsony' a részletguruk kedvence.
  .
  Függetlenül az itt beállított szinttől minden kérdés megjelenik a csomagok dpkg-reconfigure eszközzel való újrakonfigurálásakor.
-Description-id.UTF-8: Abaikan pertanyaan dengan prioritas kurang dari: 
+Description-id.UTF-8: Abaikan pertanyaan dengan prioritas kurang dari:
  Debconf memprioritaskan pertanyaan yang ditanyakan pada anda. Pilih prioritas pertanyaan terendah yang ingin anda lihat:
    - 'kritis' hanya akan menampilkan prompt bila sistem akan rusak.
      Pilih ini bila anda pengguna baru, atau sedang terburu-buru.
@@ -745,7 +745,7 @@ Description-ko.UTF-8: 이보다 우선 순위가 낮은 질문은 무시:
  기억해 두십시오. 여기에서 어떤 우선 순위를 선택하든지 간에, dpkg-reconfigure로 패키지를 설정하면 모든 질문을 볼 수 있습니다.
 Description-lt.UTF-8: Ignoruoti klausimus, kurių prioritetas žemesnis negu:
  „Debconf“ skiria jums pateikiamų klausimų prioritetus. Pasirinkite žemiausią norimų matyti klausimų prioritetą:
-  - „kritinis“ – klausti tik tų klausimų, kurių neatsakius, 
+  - „kritinis“ – klausti tik tų klausimų, kurių neatsakius,
      iškiltų didelė sistemos strigimo grėsmė.
      Rinkitės šį variantą, jei esate naujokas(-ė) arba skubate.
   - „aukštas“ – gan svarbūs klausimai.
@@ -772,12 +772,12 @@ Description-mg.UTF-8: Adinoy ny fanontaniana manana laharana ambanin'ny :
  .
  Tadidio fa na inona na inona ny laharana fidinao eto dia ho hitanao daholo ny fanontaniana rehetra rehefa mametraka ny fonosana miaraka amin'ny dpkg-reconfigure ianao.
 Description-mk.UTF-8: Игнорирај ги прашањата со приоритет помал од:
- Debconf ги приоритизира прашањата кои те прашува. Избери го најниското ниво на приоритет на прашањата што сакаш да ги видиш: 
- - „критично“ е за делови кои најверојатно ќе го расипат системот 
+ Debconf ги приоритизира прашањата кои те прашува. Избери го најниското ниво на приоритет на прашањата што сакаш да ги видиш:
+ - „критично“ е за делови кои најверојатно ќе го расипат системот
  Избери го ова ако си нов корисник, или се брзаш
  - „висок“ е поприлично важни прашања
  - „среден“ е за нормални прашањ
- - „низок“ е за оние кои сакаат да ги видат баш сите прашања 
+ - „низок“ е за оние кои сакаат да ги видат баш сите прашања
  .
  Имај на ум дека било кое ниво што ќе го одбереш тука, ќе бидеш во можност да ги гледаш сите прашања ако гопреконфигурираш пакетот со dpkg-reconfigure.
 Description-ml.UTF-8: ഇതിനേക്കാള്‍ മുന്‍ഗണന കുറഞ്ഞ ചോദ്യങ്ങള്‍ അവഗണിക്കുക:
@@ -791,10 +791,10 @@ Description-ml.UTF-8: ഇതിനേക്കാള്‍ മുന്‍ഗണ
  ഇവിടെ നിങ്ങള്‍ ഏത്  ലെവല്‍ തിരഞ്ഞെടുക്കുന്നു എന്നതിനെ ആശ്രയിക്കാതെ തന്നെ ഒരു പാക്കേജ് dpkg-reconfigure ഉപയോഗിച്ച് പുനക്രമീകരിക്കുകയാണെങ്കില്‍, നിങ്ങള്‍ക്ക് എല്ലാ ചോദ്യങ്ങളും കാണാവുന്നതാണ്.
 Description-mr.UTF-8: प्राधान्यक्रमानुसार कमी महत्वाचे प्रश्नांकडे दुर्लक्ष करा
  डेबकॉन्फ प्रश्नांचा प्राधान्यक्रम ठरवितो। तुमच्या प्राधान्यक्रमातील सर्वात कमी महत्वाचा प्रश्न निवडा
-  - गंभीर हा शब्द एवढेच दर्शवितो की संगणकामध्ये कदाचित बिघाड संभवतो। 
-  तुम्ही नवखे असाल वा घाईत असाल तरच याची निवड करा। 
-   'अधिक' हा शब्द जास्त महत्वाचे प्रश्नांसाठी आहे 
-   'मध्यम' हा शब्द साधारण प्रश्नांसाठी आहे 
+  - गंभीर हा शब्द एवढेच दर्शवितो की संगणकामध्ये कदाचित बिघाड संभवतो।
+  तुम्ही नवखे असाल वा घाईत असाल तरच याची निवड करा।
+   'अधिक' हा शब्द जास्त महत्वाचे प्रश्नांसाठी आहे
+   'मध्यम' हा शब्द साधारण प्रश्नांसाठी आहे
    'निम्न' हा शब्द अधिक अधिकार गाजवू पहाणा-यांसाठी आहे ज्यांना प्रत्येक गोष्ट पहावयाची असते
  .
  जर तुम्ही पॅकेजची संरचना डिपीकेजी वापरून पुन्हा करणार असाल तर कृपया ध्यानात घ्या की तुम्हीकोणतीही पातळी निवडलीत तरी तुम्ही प्रत्येक प्रश्न पाहु शकाल
@@ -845,7 +845,7 @@ Description-pa.UTF-8: ਘੱਟ ਦਰਜੇ ਵਾਲੇ ਸਵਾਲਾਂ ਨ
  ਯਾਦ ਰੱਖੋ ਕਿ ਇਸ ਦਾ ਕੋਈ ਫ਼ਰਕ ਨਹੀਂ ਪੈਂਦਾ ਹੈ ਕਿ ਤੁਸੀਂ ਕੀ ਚੋਣ ਕੀਤੀ ਹੈ, ਬਲਕਿ ਤੁਸੀਂ dpkg-reconfigureਨਾਲ ਇੱਕ ਪੈਕੇਜ ਨੂੰ ਮੁੜ-ਸੰਰਚਿਤ ਕਰਨ ਕੀਤਾ ਤਾਂ ਹਰੇਕ ਸਵਾਲ ਵੇਖੋਗੇ।
 Description-pl.UTF-8: Ignoruj pytania z priorytetem niższym niż:
  Debconf używa priorytetów dla zadawanych pytań. Wybierz najniższy priorytet pytań jakie chcesz zobaczyć:
-   - 'krytyczny' zadaje pytania tylko jeśli istnieje niebezpieczeństwo 
+   - 'krytyczny' zadaje pytania tylko jeśli istnieje niebezpieczeństwo
  uszkodzenia systemu. Zalecane dla początkujących
    - 'wysoki' dla raczej istotnych pytań
    - 'średni' dla zwyczajnych pytań
@@ -880,7 +880,7 @@ Description-ro.UTF-8: Ignoră întrebările cu prioritatea mai mică decât:
  .
  A se nota că indiferent ce nivel alegeți aici, veți putea să vedeți fiecare întrebare dacă reconfigurați un pachet cu dpkg-reconfigure.
 Description-ru.UTF-8: Не задавать вопросы с приоритетом менее чем:
- Debconf различает степень важности задаваемых вам вопросов. Выберите наименьший уровень вопросов, которые хотите видеть: 
+ Debconf различает степень важности задаваемых вам вопросов. Выберите наименьший уровень вопросов, которые хотите видеть:
    - «критический» — Выдает только вопросы, критичные для работы системы.
       Выберите этот уровень, если вы новичок или если торопитесь.
    - «высокий»     — Выдает наиболее важные вопросы.

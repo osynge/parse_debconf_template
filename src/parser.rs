@@ -14,6 +14,7 @@ use nom::bytes::complete::tag;
 use nom::bytes::complete::take_while1;
 use nom::combinator::complete;
 use nom::combinator::peek;
+use nom::error::ParseError;
 use nom::multi::many0;
 use nom::multi::separated_list0;
 use nom::multi::separated_list1;
@@ -21,47 +22,63 @@ use nom::sequence::tuple;
 use nom::IResult;
 use std::string::String;
 
-pub(crate) fn key_template(i: &str) -> IResult<&str, &str> {
+pub(crate) fn key_template<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("Template")(i)
 }
 
-pub(crate) fn key_type(i: &str) -> IResult<&str, &str> {
+pub(crate) fn key_type<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("Type")(i)
 }
 
-pub(crate) fn key_default(i: &str) -> IResult<&str, &str> {
+pub(crate) fn key_default<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("Default")(i)
 }
 
-pub(crate) fn template_type_boolean(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_boolean<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("boolean")(i)
 }
 
-pub(crate) fn template_type_error(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_error<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("error")(i)
 }
 
-pub(crate) fn template_type_multiselect(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_multiselect<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("multiselect")(i)
 }
 
-pub(crate) fn template_type_text(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_text<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("text")(i)
 }
 
-pub(crate) fn template_type_select(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_select<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("select")(i)
 }
 
-pub(crate) fn template_type_string(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_string<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("string")(i)
 }
 
-pub(crate) fn template_type_title(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type_title<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("title")(i)
 }
 
-pub(crate) fn template_type(i: &str) -> IResult<&str, &str> {
+pub(crate) fn template_type<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, &'a str, E> {
     let mut alternatives = alt((
         complete(template_type_boolean),
         complete(template_type_error),
@@ -75,7 +92,9 @@ pub(crate) fn template_type(i: &str) -> IResult<&str, &str> {
     Ok((i, line))
 }
 
-fn line_parser_template(i: &str) -> IResult<&str, (&str, &str)> {
+fn line_parser_template<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, (&'a str, &'a str), E> {
     let (i, _) = key_template(i)?;
     let (i, _) = delimiter_key_value(i)?;
     let (i, package) = nom::bytes::complete::is_not("/")(i)?;
@@ -84,34 +103,35 @@ fn line_parser_template(i: &str) -> IResult<&str, (&str, &str)> {
     Ok((i, (package, section)))
 }
 
-fn line_parser_type(i: &str) -> IResult<&str, &str> {
+fn line_parser_type<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     let (i, _) = key_type(i)?;
     let (i, _) = delimiter_key_value(i)?;
     let (i, template_type) = template_type(i)?;
     Ok((i, template_type))
 }
 
-fn line_parser_default(i: &str) -> IResult<&str, &str> {
+fn line_parser_default<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     let (i, _) = key_default(i)?;
     let (i, _) = delimiter_key_value(i)?;
     let (i, default) = nom::bytes::complete::is_not("\n")(i)?;
     Ok((i, default))
 }
 
-fn section_parser_choice_defaulted(
-    i: &str,
+fn section_parser_choice_defaulted<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     (
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     ),
+    E,
 > {
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
@@ -138,20 +158,21 @@ fn section_parser_choice_defaulted(
     ))
 }
 
-fn section_parser_choice_nodefault(
-    i: &str,
+fn section_parser_choice_nodefault<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     (
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     ),
+    E,
 > {
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
@@ -176,20 +197,21 @@ fn section_parser_choice_nodefault(
     ))
 }
 
-fn section_parser_defaulted(
-    i: &str,
+fn section_parser_defaulted<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     (
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     ),
+    E,
 > {
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
@@ -214,20 +236,21 @@ fn section_parser_defaulted(
     ))
 }
 
-fn section_parser_nodefault(
-    i: &str,
+fn section_parser_nodefault<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     (
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     ),
+    E,
 > {
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
@@ -250,20 +273,21 @@ fn section_parser_nodefault(
     ))
 }
 
-fn section_parser(
-    i: &str,
+fn section_parser<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     (
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     ),
+    E,
 > {
     let mut alternatives = alt((
         complete(section_parser_choice_defaulted),
@@ -275,20 +299,21 @@ fn section_parser(
     Ok((i, line))
 }
 
-pub(super) fn template_parser(
-    i: &str,
+pub(super) fn template_parser<'a, E: ParseError<&'a str>>(
+    i: &'a str,
 ) -> IResult<
-    &str,
+    &'a str,
     Vec<(
-        &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
     )>,
+    E,
 > {
     separated_list1(tag("\n\n"), section_parser)(i)
 }
@@ -297,10 +322,12 @@ mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
     use super::*;
     use crate::templates;
+    use nom::error::VerboseError;
+
     #[test]
     fn test_line_parser_template_dash() {
         let line = templates::getlines(&templates::dash(), 0, 0);
-        match line_parser_template(&line) {
+        match line_parser_template::<VerboseError<&str>>(&line) {
             Ok((i, (package, section))) => {
                 println!("package {:?}", package);
 
@@ -318,7 +345,7 @@ mod tests {
     #[test]
     fn test_line_parser_type() {
         let line = templates::getlines(&templates::dash(), 1, 1);
-        match line_parser_type(&line) {
+        match line_parser_type::<VerboseError<&str>>(&line) {
             Ok((i, template_type)) => {
                 println!("template_type {:?}", template_type);
                 assert!(template_type == "boolean");
@@ -333,7 +360,7 @@ mod tests {
     #[test]
     fn test_line_parser_default() {
         let line = templates::getlines(&templates::dash(), 2, 2);
-        match line_parser_default(&line) {
+        match line_parser_default::<VerboseError<&str>>(&line) {
             Ok((i, default)) => {
                 println!("default {:?}", default);
                 assert!(default == "true");
@@ -350,7 +377,7 @@ mod tests {
         let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 72));
         //println!("line {:?}", line);
 
-        match section_parser_choice_defaulted(&line) {
+        match section_parser_choice_defaulted::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i.len());
@@ -371,7 +398,7 @@ mod tests {
         ));
         //println!("line {:?}", line);
 
-        match section_parser_choice_nodefault(&line) {
+        match section_parser_choice_nodefault::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i.len());
@@ -387,7 +414,7 @@ mod tests {
     #[test]
     fn test_line_parser_decription_sections_all() {
         let mut line = String::from(templates::getlines(&templates::dash(), 3, 9999));
-        match line_parser_decription_sections_all(&line) {
+        match line_parser_decription_sections_all::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("i {:?}", i);
                 println!("value {:?}", value);
@@ -404,7 +431,7 @@ mod tests {
     #[test]
     fn test_dash_section_parser() {
         let mut line = String::from(templates::getlines(&templates::dash(), 0, 9999));
-        match section_parser(&line) {
+        match section_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);

@@ -92,6 +92,9 @@ mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
     use super::*;
     use crate::parser::template_parser;
+    use nom::error::convert_error;
+    use nom::error::VerboseError;
+    use nom::Err;
 
     #[test]
     fn test_first_line() {
@@ -130,7 +133,7 @@ mod tests {
     #[test]
     fn test_adduser_all() {
         let line = String::from(getlines(&adduser(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -147,7 +150,7 @@ mod tests {
     #[test]
     fn test_adduser_all_skip_line() {
         let line = String::from(getlines(&adduser(), 1, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -162,7 +165,7 @@ mod tests {
     #[test]
     fn test_apparmor_all() {
         let line = String::from(getlines(&apparmor(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -177,7 +180,7 @@ mod tests {
     #[test]
     fn test_irqbalance_all() {
         let line = String::from(getlines(&irqbalance(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -193,7 +196,7 @@ mod tests {
     #[test]
     fn test_apt_listchanges_all() {
         let line = String::from(getlines(&apt_listchanges(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -208,7 +211,7 @@ mod tests {
     #[test]
     fn test_apt_listchanges_all_skip_line() {
         let line = String::from(getlines(&apt_listchanges(), 1, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -224,7 +227,7 @@ mod tests {
     #[test]
     fn test_base_passwd_all() {
         let line = String::from(getlines(&base_passwd(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -240,7 +243,7 @@ mod tests {
     #[test]
     fn test_ca_certificates_all() {
         let line = String::from(getlines(&ca_certificates(), 1, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -257,7 +260,7 @@ mod tests {
     #[test]
     fn test_console_setup_all() {
         let line = String::from(getlines(&console_setup(), 1, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -274,7 +277,7 @@ mod tests {
     #[test]
     fn test_cups_all() {
         let line = String::from(getlines(&cups(), 1, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -291,7 +294,7 @@ mod tests {
     #[test]
     fn test_dash_all() {
         let line = String::from(getlines(&dash(), 0, 9999));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
@@ -306,23 +309,27 @@ mod tests {
     #[test]
     fn test_debconf_all() {
         let line = String::from(getlines(&debconf(), 0, 169));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "verbose errors - `root::<VerboseError>(data)`:\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
     #[test]
     fn test_discover_all() {
         let line = String::from(getlines(&discover(), 0, 169));
-        match template_parser(&line) {
+        match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i);

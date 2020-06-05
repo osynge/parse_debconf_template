@@ -8,11 +8,12 @@ use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::bytes::complete::take_while1;
 use nom::combinator::complete;
+use nom::error::ParseError;
 use nom::multi::separated_list1;
 use nom::sequence::tuple;
 use nom::IResult;
 
-pub(crate) fn key_choices(i: &str) -> IResult<&str, &str> {
+pub(crate) fn key_choices<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
     nom::bytes::complete::tag("Choices")(i)
 }
 
@@ -24,14 +25,18 @@ fn is_choices_char(c: char) -> bool {
     }
 }
 
-fn line_parser_choices_default(i: &str) -> IResult<&str, Vec<&str>> {
+fn line_parser_choices_default<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, Vec<&'a str>, E> {
     let (i, _) = key_choices(i)?;
     let (i, _) = delimiter_key_value(i)?;
     let (i, (choices)) = separated_list1(tag(", "), take_while1(is_choices_char))(i)?;
     Ok((i, choices))
 }
 
-fn line_parser_choices_locales(i: &str) -> IResult<&str, (&str, &str, Vec<&str>)> {
+fn line_parser_choices_locales<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&str, (&str, &str, Vec<&str>), E> {
     let (i, _) = key_choices(i)?;
     let (i, _) = delimiter_description_locale(i)?;
     let (i, country) = locale_country(i)?;
@@ -42,13 +47,15 @@ fn line_parser_choices_locales(i: &str) -> IResult<&str, (&str, &str, Vec<&str>)
     Ok((i, (country, encoding, choices)))
 }
 
-fn line_parser_choices_locales_all(i: &str) -> IResult<&str, Vec<(&str, &str, Vec<&str>)>> {
+fn line_parser_choices_locales_all<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&str, Vec<(&'a str, &'a str, Vec<&'a str>)>, E> {
     separated_list1(tag("\n"), line_parser_choices_locales)(i)
 }
 
-pub(crate) fn line_parser_choices_all_locales(
-    i: &str,
-) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>)> {
+pub(crate) fn line_parser_choices_all_locales<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, (Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>), E> {
     let mut tpl = tuple((
         line_parser_choices_default,
         delimiter_line,
@@ -58,17 +65,17 @@ pub(crate) fn line_parser_choices_all_locales(
     Ok((i, (line, details)))
 }
 
-pub(crate) fn line_parser_choices_all_default_only(
-    i: &str,
-) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>)> {
+pub(crate) fn line_parser_choices_all_default_only<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>), E> {
     let (i, line) = line_parser_choices_default(i)?;
     let details = vec![];
     Ok((i, (line, details)))
 }
 
-pub(crate) fn line_parser_choices_all(
-    i: &str,
-) -> IResult<&str, (Vec<&str>, Vec<(&str, &str, Vec<&str>)>)> {
+pub(crate) fn line_parser_choices_all<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<&'a str, (Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>), E> {
     let mut alternatives = alt((
         complete(line_parser_choices_all_locales),
         complete(line_parser_choices_all_default_only),
@@ -81,10 +88,12 @@ mod tests {
     // Note this useful idiom: importing names from outer (for mod tests) scope.
     use super::*;
     use crate::templates;
+    use nom::error::VerboseError;
+
     #[test]
     fn test_line_parser_choices_locales_all() {
         let line = templates::getlines(&templates::apt_listchanges(), 4, 9999);
-        match line_parser_choices_locales_all(&line) {
+        match line_parser_choices_locales_all::<VerboseError<&str>>(&line) {
             Ok((i, choices)) => {
                 println!("choices {:?}", choices);
                 println!("choices len {:?}", choices.len());
@@ -100,7 +109,7 @@ mod tests {
     #[test]
     fn test_line_parser_choices_all() {
         let line = templates::getlines(&templates::apt_listchanges(), 3, 26);
-        match line_parser_choices_all(&line) {
+        match line_parser_choices_all::<VerboseError<&str>>(&line) {
             Ok((i, (choices, locales))) => {
                 println!("choices {:?}", choices);
                 println!("choices len {:?}", choices.len());
@@ -118,7 +127,7 @@ mod tests {
     #[test]
     fn test_test_line_parser_choices_locales() {
         let line = templates::getlines(&templates::apt_listchanges(), 4, 4);
-        match line_parser_choices_locales(&line) {
+        match line_parser_choices_locales::<VerboseError<&str>>(&line) {
             Ok((i, (country, encoding, choices))) => {
                 println!("choices {:?}", choices);
                 assert!(
@@ -145,8 +154,8 @@ mod tests {
     #[test]
     fn test_test_line_parser_choices_default() {
         let line = templates::getlines(&templates::apt_listchanges(), 3, 3);
-        match line_parser_choices_default(&line) {
-            Ok((i, choices)) => {
+        match line_parser_choices_default::<VerboseError<&str>>(&line) {
+            Ok((_i, choices)) => {
                 println!("choices {:?}", choices);
                 assert!(
                     choices
@@ -172,7 +181,7 @@ mod tests {
     #[test]
     fn test_line_parser_choices_default_variable() {
         let line = templates::getlines(&templates::ca_certificates(), 235, 236);
-        match line_parser_choices_all(&line) {
+        match line_parser_choices_all::<VerboseError<&str>>(&line) {
             Ok((i, choices)) => {
                 println!("choices {:?}", choices);
                 println!("i {:?}", i);
@@ -198,7 +207,7 @@ mod tests {
     #[test]
     fn test_debconf_s() {
         let line = templates::getlines(&templates::debconf(), 2, 3);
-        match line_parser_choices_all(&line) {
+        match line_parser_choices_all::<VerboseError<&str>>(&line) {
             Ok((i, choices)) => {
                 println!("choices {:?}", choices);
                 println!("i {:?}", i);
