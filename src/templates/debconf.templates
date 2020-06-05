@@ -69,7 +69,7 @@ Choices-vi.UTF-8: Hộp thoại, Readline, Gnome, Kde, Trình hiệu chỉnh, Kh
 Choices-wo.UTF-8: Dialog, Readline, Gnome, Kde, Editor, Noninteractive
 Choices-zh_CN.UTF-8: 字符对话框, 纯文本界面, Gnome, Kde, 编辑器, 非交互方式
 Choices-zh_TW.UTF-8: Dialog, Readline, Gnome, Kde, 編輯器, 非互動式
-Defaults: Dialog
+Default: Dialog
 Description: Interface to use:
  Packages that use debconf for configuration share a common look and feel.
  You can select the type of user interface they use.
