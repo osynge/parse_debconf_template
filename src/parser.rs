@@ -20,6 +20,7 @@ use nom::multi::separated_list0;
 use nom::multi::separated_list1;
 use nom::sequence::tuple;
 use nom::IResult;
+use nom::Parser;
 use std::string::String;
 
 pub(crate) fn key_template<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a str, &'a str, E> {
@@ -273,7 +274,7 @@ fn section_parser_nodefault<'a, E: ParseError<&'a str>>(
     ))
 }
 
-fn section_parser<'a, E: ParseError<&'a str>>(
+fn section_parser_old<'a, E: ParseError<&'a str>>(
     i: &'a str,
 ) -> IResult<
     &'a str,
@@ -297,6 +298,55 @@ fn section_parser<'a, E: ParseError<&'a str>>(
     ));
     let (i, line) = alternatives(i)?;
     Ok((i, line))
+}
+
+fn section_parser<'a, E: ParseError<&'a str>>(
+    i: &'a str,
+) -> IResult<
+    &'a str,
+    (
+        &'a str,
+        &'a str,
+        &'a str,
+        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
+        Option<&'a str>,
+        &'a str,
+        Vec<&'a str>,
+        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
+    ),
+    E,
+> {
+    let (i, (package, section)) = line_parser_template(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (template_type)) = line_parser_type(i)?;
+    let (i, _) = delimiter_line(i)?;
+    // std::result::Result<(&str, &str), nom::Err<E>>
+
+    let mut jam: Result<(&str, &str), nom::Err<E>> = peek(tag("Choices"))(i);
+    match jam {
+        Ok(_) => {}
+        Err(_) => {}
+    }
+
+    let (i, choices) = line_parser_choices_all(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, template_default) = line_parser_default(i)?;
+    let (i, _) = delimiter_line(i)?;
+    let (i, (decription_title, decription_lines, decription_locales)) =
+        line_parser_decription_sections_all(i)?;
+    Ok((
+        i,
+        (
+            package,
+            section,
+            template_type,
+            Some(choices),
+            Some(template_default),
+            decription_title,
+            decription_lines,
+            decription_locales,
+        ),
+    ))
 }
 
 pub(super) fn template_parser<'a, E: ParseError<&'a str>>(
