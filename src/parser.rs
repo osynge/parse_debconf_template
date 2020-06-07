@@ -118,188 +118,6 @@ fn line_parser_default<'a, E: ParseError<&'a str>>(i: &'a str) -> IResult<&'a st
     Ok((i, default))
 }
 
-fn section_parser_choice_defaulted<'a, E: ParseError<&'a str>>(
-    i: &'a str,
-) -> IResult<
-    &'a str,
-    (
-        &'a str,
-        &'a str,
-        &'a str,
-        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
-        Option<&'a str>,
-        &'a str,
-        Vec<&'a str>,
-        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
-    ),
-    E,
-> {
-    let (i, (package, section)) = line_parser_template(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (template_type)) = line_parser_type(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, choices) = line_parser_choices_all(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, template_default) = line_parser_default(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (decription_title, decription_lines, decription_locales)) =
-        line_parser_decription_sections_all(i)?;
-    Ok((
-        i,
-        (
-            package,
-            section,
-            template_type,
-            Some(choices),
-            Some(template_default),
-            decription_title,
-            decription_lines,
-            decription_locales,
-        ),
-    ))
-}
-
-fn section_parser_choice_nodefault<'a, E: ParseError<&'a str>>(
-    i: &'a str,
-) -> IResult<
-    &'a str,
-    (
-        &'a str,
-        &'a str,
-        &'a str,
-        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
-        Option<&'a str>,
-        &'a str,
-        Vec<&'a str>,
-        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
-    ),
-    E,
-> {
-    let (i, (package, section)) = line_parser_template(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (template_type)) = line_parser_type(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, choices) = line_parser_choices_all(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (decription_title, decription_lines, decription_locales)) =
-        line_parser_decription_sections_all(i)?;
-    Ok((
-        i,
-        (
-            package,
-            section,
-            template_type,
-            Some(choices),
-            None,
-            decription_title,
-            decription_lines,
-            decription_locales,
-        ),
-    ))
-}
-
-fn section_parser_defaulted<'a, E: ParseError<&'a str>>(
-    i: &'a str,
-) -> IResult<
-    &'a str,
-    (
-        &'a str,
-        &'a str,
-        &'a str,
-        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
-        Option<&'a str>,
-        &'a str,
-        Vec<&'a str>,
-        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
-    ),
-    E,
-> {
-    let (i, (package, section)) = line_parser_template(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (template_type)) = line_parser_type(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, template_default) = line_parser_default(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (decription_title, decription_lines, decription_locales)) =
-        line_parser_decription_sections_all(i)?;
-    Ok((
-        i,
-        (
-            package,
-            section,
-            template_type,
-            None,
-            Some(template_default),
-            decription_title,
-            decription_lines,
-            decription_locales,
-        ),
-    ))
-}
-
-fn section_parser_nodefault<'a, E: ParseError<&'a str>>(
-    i: &'a str,
-) -> IResult<
-    &'a str,
-    (
-        &'a str,
-        &'a str,
-        &'a str,
-        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
-        Option<&'a str>,
-        &'a str,
-        Vec<&'a str>,
-        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
-    ),
-    E,
-> {
-    let (i, (package, section)) = line_parser_template(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (template_type)) = line_parser_type(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, (decription_title, decription_lines, decription_locales)) =
-        line_parser_decription_sections_all(i)?;
-    Ok((
-        i,
-        (
-            package,
-            section,
-            template_type,
-            None,
-            None,
-            decription_title,
-            decription_lines,
-            decription_locales,
-        ),
-    ))
-}
-
-fn section_parser_old<'a, E: ParseError<&'a str>>(
-    i: &'a str,
-) -> IResult<
-    &'a str,
-    (
-        &'a str,
-        &'a str,
-        &'a str,
-        Option<(Vec<&'a str>, Vec<(&'a str, &'a str, Vec<&'a str>)>)>,
-        Option<&'a str>,
-        &'a str,
-        Vec<&'a str>,
-        Vec<(&'a str, &'a str, &'a str, Vec<&'a str>)>,
-    ),
-    E,
-> {
-    let mut alternatives = alt((
-        complete(section_parser_choice_defaulted),
-        complete(section_parser_choice_nodefault),
-        complete(section_parser_defaulted),
-        complete(section_parser_nodefault),
-    ));
-    let (i, line) = alternatives(i)?;
-    Ok((i, line))
-}
-
 fn section_parser<'a, E: ParseError<&'a str>>(
     i: &'a str,
 ) -> IResult<
@@ -318,20 +136,28 @@ fn section_parser<'a, E: ParseError<&'a str>>(
 > {
     let (i, (package, section)) = line_parser_template(i)?;
     let (i, _) = delimiter_line(i)?;
-    let (i, (template_type)) = line_parser_type(i)?;
+    let (i, template_type) = line_parser_type(i)?;
     let (i, _) = delimiter_line(i)?;
     // std::result::Result<(&str, &str), nom::Err<E>>
 
-    let mut jam: Result<(&str, &str), nom::Err<E>> = peek(tag("Choices"))(i);
-    match jam {
-        Ok(_) => {}
-        Err(_) => {}
-    }
-
-    let (i, choices) = line_parser_choices_all(i)?;
-    let (i, _) = delimiter_line(i)?;
-    let (i, template_default) = line_parser_default(i)?;
-    let (i, _) = delimiter_line(i)?;
+    let res: Result<(&str, &str), nom::Err<E>> = tag("Choices")(i);
+    let (i, opt_choices) = match res {
+        Ok(_) => {
+            let (i, choices) = line_parser_choices_all(i)?;
+            let (i, _) = delimiter_line(i)?;
+            (i, Some(choices))
+        }
+        Err(_) => (i, None),
+    };
+    let res: Result<(&str, &str), nom::Err<E>> = tag("Default")(i);
+    let (i, opt_default) = match res {
+        Ok(_) => {
+            let (i, default) = line_parser_default(i)?;
+            let (i, _) = delimiter_line(i)?;
+            (i, Some(default))
+        }
+        Err(_) => (i, None),
+    };
     let (i, (decription_title, decription_lines, decription_locales)) =
         line_parser_decription_sections_all(i)?;
     Ok((
@@ -340,8 +166,8 @@ fn section_parser<'a, E: ParseError<&'a str>>(
             package,
             section,
             template_type,
-            Some(choices),
-            Some(template_default),
+            opt_choices,
+            opt_default,
             decription_title,
             decription_lines,
             decription_locales,
