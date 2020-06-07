@@ -7,24 +7,33 @@ mod parser_description;
 mod parser_locale_country;
 mod parser_locale_encoding;
 mod templates;
-use nom::IResult;
+use nom::error::convert_error;
+use nom::error::VerboseError;
+use nom::Err;
 
 pub fn template_parser(
     i: &str,
-) -> IResult<
-    &str,
-    Vec<(
+) -> Result<
+    (
         &str,
-        &str,
-        &str,
-        Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
-        Option<&str>,
-        &str,
-        Vec<&str>,
-        Vec<(&str, &str, &str, Vec<&str>)>,
-    )>,
+        Vec<(
+            &str,
+            &str,
+            &str,
+            Option<(Vec<&str>, Vec<(&str, &str, Vec<&str>)>)>,
+            Option<&str>,
+            &str,
+            Vec<&str>,
+            Vec<(&str, &str, &str, Vec<&str>)>,
+        )>,
+    ),
+    String,
 > {
-    parser::template_parser(i)
+    match parser::template_parser::<VerboseError<&str>>(&i) {
+        Ok((i, value)) => Ok((i, value)),
+        Err(Err::Error(e)) | Err(Err::Failure(e)) => Err(convert_error(&i, e)),
+        Err(Err::Incomplete(e)) => Err(String::from("Incomplete")),
+    }
 }
 
 #[cfg(test)]
