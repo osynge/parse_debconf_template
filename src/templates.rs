@@ -55,6 +55,26 @@ pub fn discover<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/discover.templates")));
 }
 
+pub fn exim4_base<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!("templates/exim4-base.templates")));
+}
+
+pub fn exim4_config<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!(
+        "templates/exim4-config.templates"
+    )));
+}
+
+pub fn exim4_daemon_light<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!(
+        "templates/exim4-daemon-light.templates"
+    )));
+}
+
+pub fn exim4<'a>() -> Cow<'a, str> {
+    return Cow::Owned(String::from(include_str!("templates/exim4.templates")));
+}
+
 pub fn gpm<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/gpm.templates")));
 }
@@ -329,6 +349,66 @@ mod tests {
     #[test]
     fn test_discover_all() {
         let line = String::from(getlines(&discover(), 0, 169));
+        match template_parser::<VerboseError<&str>>(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_exim4_base_all() {
+        let line = String::from(getlines(&exim4_base(), 0, 169));
+        match template_parser::<VerboseError<&str>>(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_exim4_config_all() {
+        let line = String::from(getlines(&exim4_config(), 0, 169));
+        match template_parser::<VerboseError<&str>>(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_exim4_daemon_light_all() {
+        let line = String::from(getlines(&exim4_daemon_light(), 0, 169));
+        match template_parser::<VerboseError<&str>>(&line) {
+            Ok((i, value)) => {
+                println!("value {:?}", value);
+                println!("i {:?}", i);
+                assert!(i == "");
+            }
+            Err(err) => {
+                println!("err {:?}", err);
+                assert!(false);
+            }
+        }
+    }
+    #[test]
+    fn test_exim4_all() {
+        let line = String::from(getlines(&exim4(), 0, 169));
         match template_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
