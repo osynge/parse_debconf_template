@@ -253,7 +253,7 @@ mod tests {
         let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 72));
         //println!("line {:?}", line);
 
-        match section_parser_choice_defaulted::<VerboseError<&str>>(&line) {
+        match section_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i.len());
@@ -274,7 +274,7 @@ mod tests {
         ));
         //println!("line {:?}", line);
 
-        match section_parser_choice_nodefault::<VerboseError<&str>>(&line) {
+        match section_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
                 println!("i {:?}", i.len());
