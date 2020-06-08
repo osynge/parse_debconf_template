@@ -175,10 +175,14 @@ mod tests {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -190,10 +194,14 @@ mod tests {
                 println!("value {:?}", value);
                 println!("i {:?}", i);
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -206,10 +214,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -222,9 +234,13 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -237,10 +253,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -253,10 +273,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -269,11 +293,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                //println!("line {:?}", line);
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -286,11 +313,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                //println!("line {:?}", line);
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -303,11 +333,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                //println!("line {:?}", line);
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 
@@ -320,10 +353,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
     #[test]
@@ -337,7 +374,7 @@ mod tests {
             }
             Err(Err::Error(e)) | Err(Err::Failure(e)) => {
                 println!(
-                    "verbose errors - `root::<VerboseError>(data)`:\n{}",
+                    "template_parser::<VerboseError>(data):\n{}",
                     convert_error(&line, e)
                 );
                 assert!(false);
@@ -355,10 +392,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
     #[test]
@@ -370,10 +411,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
     #[test]
@@ -385,10 +430,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
     #[test]
@@ -400,10 +449,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
     #[test]
@@ -415,10 +468,14 @@ mod tests {
                 println!("i {:?}", i);
                 assert!(i == "");
             }
-            Err(err) => {
-                println!("err {:?}", err);
+            Err(Err::Error(e)) | Err(Err::Failure(e)) => {
+                println!(
+                    "template_parser::<VerboseError>(data):\n{}",
+                    convert_error(&line, e)
+                );
                 assert!(false);
             }
+            Err(Err::Incomplete(e)) => {}
         }
     }
 }
