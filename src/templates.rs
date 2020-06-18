@@ -347,7 +347,7 @@ mod tests {
     fn test_cups_all() {
         let line = String::from(getlines(&cups(), 1, 9999));
         match template_parser::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((i, _value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
