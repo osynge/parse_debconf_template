@@ -91,21 +91,21 @@ pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str>
     let mut foo = String::from(input);
     let mut lines = foo.lines();
     let mut counter = 0;
-    let mut Output = Vec::new();
+    let mut output = Vec::new();
     loop {
         let first_line = match lines.next() {
             Some(p) => p,
             None => break,
         };
         if (counter >= line_start && counter <= line_end) {
-            Output.push(String::from(first_line));
+            output.push(String::from(first_line));
         }
         counter += 1;
         if (counter > line_end) {
             break;
         }
     }
-    Cow::Owned(String::from(Output.join("\n")))
+    Cow::Owned(String::from(output.join("\n")))
 }
 
 mod tests {
