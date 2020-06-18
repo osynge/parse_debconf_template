@@ -359,7 +359,7 @@ mod tests {
                 );
                 assert!(false);
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
 
@@ -379,7 +379,7 @@ mod tests {
                 );
                 assert!(false);
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
     #[test]
@@ -398,7 +398,7 @@ mod tests {
                 );
                 assert!(false);
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
 
@@ -418,7 +418,7 @@ mod tests {
                 );
                 assert!(false);
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
     #[test]
