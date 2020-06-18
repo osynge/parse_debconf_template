@@ -259,7 +259,7 @@ mod tests {
                     convert_error(&line, e)
                 );
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
 
