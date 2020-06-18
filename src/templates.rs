@@ -267,7 +267,7 @@ mod tests {
     fn test_apt_listchanges_all_skip_line() {
         let line = String::from(getlines(&apt_listchanges(), 1, 9999));
         match template_parser::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((i, _value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
