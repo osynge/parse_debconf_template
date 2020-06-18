@@ -287,7 +287,7 @@ mod tests {
     fn test_base_passwd_all() {
         let line = String::from(getlines(&base_passwd(), 0, 9999));
         match template_parser::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((i, _value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
@@ -327,7 +327,7 @@ mod tests {
     fn test_console_setup_all() {
         let line = String::from(getlines(&console_setup(), 1, 9999));
         match template_parser::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((i, _value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
