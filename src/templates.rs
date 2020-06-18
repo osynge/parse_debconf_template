@@ -120,7 +120,7 @@ pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str>
             output.push(String::from(first_line));
         }
         counter += 1;
-        if (counter > line_end) {
+        if counter > line_end {
             break;
         }
     }
