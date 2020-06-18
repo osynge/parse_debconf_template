@@ -32,7 +32,7 @@ pub fn template_parser(
     match parser::template_parser::<VerboseError<&str>>(&i) {
         Ok((i, value)) => Ok((i, value)),
         Err(Err::Error(e)) | Err(Err::Failure(e)) => Err(convert_error(&i, e)),
-        Err(Err::Incomplete(e)) => Err(String::from("Incomplete")),
+        Err(Err::Incomplete(_e)) => Err(String::from("Incomplete")),
     }
 }
 
