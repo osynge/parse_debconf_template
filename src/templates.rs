@@ -307,7 +307,7 @@ mod tests {
     fn test_ca_certificates_all() {
         let line = String::from(getlines(&ca_certificates(), 1, 9999));
         match template_parser::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((i, _value)) => {
                 //println!("value {:?}", value);
                 println!("i {:?}", i);
                 assert!(i == "");
