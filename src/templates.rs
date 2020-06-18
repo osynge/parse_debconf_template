@@ -116,7 +116,7 @@ pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str>
             Some(p) => p,
             None => break,
         };
-        if (counter >= line_start && counter <= line_end) {
+        if counter >= line_start && counter <= line_end {
             output.push(String::from(first_line));
         }
         counter += 1;
