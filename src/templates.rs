@@ -1,4 +1,4 @@
-use std;
+#[cfg(test)]
 use std::borrow::Cow;
 
 #[cfg(test)]
