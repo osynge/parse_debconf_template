@@ -107,8 +107,8 @@ pub fn wamerican<'a>() -> Cow<'a, str> {
 
 #[cfg(test)]
 pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str> {
-    let mut foo = String::from(input);
-    let mut lines = foo.lines();
+    let s_input = String::from(input);
+    let mut lines = s_input.lines();
     let mut counter = 0;
     let mut output = Vec::new();
     loop {
