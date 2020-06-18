@@ -299,7 +299,7 @@ mod tests {
                 );
                 assert!(false);
             }
-            Err(Err::Incomplete(e)) => {}
+            Err(Err::Incomplete(_e)) => {}
         }
     }
 
