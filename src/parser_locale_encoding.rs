@@ -6,7 +6,7 @@ use nom::IResult;
 pub(crate) fn locale_encoding_utf8<'a, E: ParseError<&'a str>>(
     i: &'a str,
 ) -> IResult<&'a str, &'a str, E> {
-    nom::bytes::complete::tag("UTF-8")(i)
+    tag("UTF-8")(i)
 }
 
 pub(crate) fn locale_encoding<'a, E: ParseError<&'a str>>(
