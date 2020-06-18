@@ -1,92 +1,111 @@
 use std;
 use std::borrow::Cow;
 
+#[cfg(test)]
 pub fn adduser<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/adduser.templates")));
 }
 
+#[cfg(test)]
 pub fn apparmor<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/apparmor.templates")));
 }
 
+#[cfg(test)]
 pub fn apt_listchanges<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/apt-listchanges.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn base_passwd<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/base-passwd.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn ca_certificates<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/ca-certificates.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn console_setup<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/console-setup.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn cups<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/cups.templates")));
 }
 
+#[cfg(test)]
 pub fn dash<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/dash.templates")));
 }
 
+#[cfg(test)]
 pub fn debconf<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/debconf.templates")));
 }
 
+#[cfg(test)]
 pub fn dictionaries_common<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/dictionaries-common.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn discover<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/discover.templates")));
 }
 
+#[cfg(test)]
 pub fn exim4_base<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/exim4-base.templates")));
 }
 
+#[cfg(test)]
 pub fn exim4_config<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/exim4-config.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn exim4_daemon_light<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!(
         "templates/exim4-daemon-light.templates"
     )));
 }
 
+#[cfg(test)]
 pub fn exim4<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/exim4.templates")));
 }
 
+#[cfg(test)]
 pub fn gpm<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/gpm.templates")));
 }
 
+#[cfg(test)]
 pub fn irqbalance<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/irqbalance.templates")));
 }
 
+#[cfg(test)]
 pub fn wamerican<'a>() -> Cow<'a, str> {
     return Cow::Owned(String::from(include_str!("templates/wamerican.templates")));
 }
 
+#[cfg(test)]
 pub fn getlines<'a>(input: &str, line_start: u32, line_end: u32) -> Cow<'a, str> {
     let mut foo = String::from(input);
     let mut lines = foo.lines();
