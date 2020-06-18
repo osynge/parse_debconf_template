@@ -189,7 +189,7 @@ pub(crate) fn line_parser_decription_sections_all_locale<'a, E: ParseError<&'a s
 > {
     let (i, (title, lines)) = line_parser_decription_section(i)?;
     let (i, _) = delimiter_line(i)?;
-    let (i, (locales)) = separated_list1(tag("\n"), line_parser_decription_section_locales)(i)?;
+    let (i, locales) = separated_list1(tag("\n"), line_parser_decription_section_locales)(i)?;
     Ok((i, (title, lines, locales)))
 }
 
