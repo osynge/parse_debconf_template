@@ -444,7 +444,7 @@ mod tests {
 
     #[test]
     fn test_wamerican_line_parser_decription_sections_all() {
-        let mut line = String::from(templates::getlines(&templates::wamerican(), 2, 9999));
+        let line = String::from(templates::getlines(&templates::wamerican(), 2, 9999));
         println!("line {:?}", line);
         match line_parser_decription_sections_all::<VerboseError<&str>>(&line) {
             Ok((_i, value)) => {
