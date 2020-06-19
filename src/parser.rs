@@ -289,7 +289,7 @@ mod tests {
 
     #[test]
     fn test_line_parser_decription_sections_all() {
-        let mut line = String::from(templates::getlines(&templates::dash(), 3, 9999));
+        let line = String::from(templates::getlines(&templates::dash(), 3, 9999));
         match line_parser_decription_sections_all::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("i {:?}", i);
