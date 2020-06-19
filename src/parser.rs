@@ -267,7 +267,7 @@ mod tests {
     }
     #[test]
     fn test_section_parser_choice_nodefault() {
-        let mut line = String::from(templates::getlines(
+        let line = String::from(templates::getlines(
             &templates::ca_certificates(),
             233,
             9999,
