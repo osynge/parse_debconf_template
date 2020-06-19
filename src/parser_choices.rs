@@ -128,7 +128,7 @@ mod tests {
     fn test_test_line_parser_choices_locales() {
         let line = templates::getlines(&templates::apt_listchanges(), 4, 4);
         match line_parser_choices_locales::<VerboseError<&str>>(&line) {
-            Ok((_i, (_country, encoding, choices))) => {
+            Ok((_i, (_country, _encoding, choices))) => {
                 println!("choices {:?}", choices);
                 assert!(
                     choices
