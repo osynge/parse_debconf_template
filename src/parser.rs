@@ -250,7 +250,7 @@ mod tests {
 
     #[test]
     fn test_section_parser_choice_defaulted() {
-        let mut line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 72));
+        let line = String::from(templates::getlines(&templates::apt_listchanges(), 1, 72));
         //println!("line {:?}", line);
 
         match section_parser::<VerboseError<&str>>(&line) {
