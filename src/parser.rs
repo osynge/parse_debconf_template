@@ -222,7 +222,7 @@ mod tests {
     fn test_line_parser_type() {
         let line = templates::getlines(&templates::dash(), 1, 1);
         match line_parser_type::<VerboseError<&str>>(&line) {
-            Ok((i, template_type)) => {
+            Ok((_i, template_type)) => {
                 println!("template_type {:?}", template_type);
                 assert!(template_type == "boolean");
             }
