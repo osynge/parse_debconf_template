@@ -339,7 +339,7 @@ mod tests {
     fn test_line_parser_decription_lines_without_data() {
         let line = templates::getlines(&templates::dash(), 5, 6);
         match line_parser_decription_lines::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((_i, value)) => {
                 println!("value {:?}", value);
                 assert!(value == "");
             }
