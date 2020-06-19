@@ -447,7 +447,7 @@ mod tests {
         let mut line = String::from(templates::getlines(&templates::wamerican(), 2, 9999));
         println!("line {:?}", line);
         match line_parser_decription_sections_all::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((_i, value)) => {
                 assert!(value == ("", vec![], vec![]));
                 /*assert!(value == ("bg", "UTF-8","Използване на dash като системна обвивка (/bin/sh)?", vec!["Системната обвивка се използва по подразбиране от скриптовете на обвивката.", "", "Използването на dash като системна обвивка ще подобри бързодействието на системата като цяло. Тази настройка не променя обвивката на интерактивните потребители."]));*/
             }
