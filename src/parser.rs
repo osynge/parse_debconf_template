@@ -204,7 +204,7 @@ mod tests {
     fn test_line_parser_template_dash() {
         let line = templates::getlines(&templates::dash(), 0, 0);
         match line_parser_template::<VerboseError<&str>>(&line) {
-            Ok((i, (package, section))) => {
+            Ok((_i, (package, section))) => {
                 println!("package {:?}", package);
 
                 println!("package {:?}", section);
