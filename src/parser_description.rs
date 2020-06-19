@@ -1,6 +1,6 @@
 use crate::parser_delimiters::{
     delimiter_description_locale, delimiter_key_value, delimiter_line,
-    delimiter_locale_country_encoding, delimiter_package_section,
+    delimiter_locale_country_encoding,
 };
 use crate::parser_locale_country::locale_country;
 use crate::parser_locale_encoding::locale_encoding;
