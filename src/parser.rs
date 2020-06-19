@@ -237,7 +237,7 @@ mod tests {
     fn test_line_parser_default() {
         let line = templates::getlines(&templates::dash(), 2, 2);
         match line_parser_default::<VerboseError<&str>>(&line) {
-            Ok((i, default)) => {
+            Ok((_i, default)) => {
                 println!("default {:?}", default);
                 assert!(default == "true");
             }
