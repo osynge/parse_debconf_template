@@ -8,7 +8,6 @@ use crate::parser_description::line_parser_decription_sections_all;
 use crate::parser_locale_country::locale_country;
 use crate::parser_locale_encoding::locale_encoding;
 use core::option;
-use indoc::indoc;
 use nom::branch::alt;
 use nom::bytes::complete::tag;
 use nom::bytes::complete::take_while1;
