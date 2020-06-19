@@ -253,7 +253,7 @@ mod tests {
     fn test_line_parser_decription_title() {
         let line = templates::getlines(&templates::dash(), 3, 3);
         match line_parser_decription_title::<VerboseError<&str>>(&line) {
-            Ok((i, title)) => {
+            Ok((_i, title)) => {
                 println!("title {:?}", title);
                 assert!(title == "Use dash as the default system shell (/bin/sh)?")
             }
@@ -267,7 +267,7 @@ mod tests {
     fn test_line_parser_decription_title_locales() {
         let line = templates::getlines(&templates::dash(), 9, 9);
         match line_parser_decription_title_locales::<VerboseError<&str>>(&line) {
-            Ok((i, title)) => {
+            Ok((_i, title)) => {
                 println!("title {:?}", title);
                 assert!(
                     title
