@@ -30,7 +30,7 @@ fn line_parser_choices_default<'a, E: ParseError<&'a str>>(
 ) -> IResult<&'a str, Vec<&'a str>, E> {
     let (i, _) = key_choices(i)?;
     let (i, _) = delimiter_key_value(i)?;
-    let (i, (choices)) = separated_list1(tag(", "), take_while1(is_choices_char))(i)?;
+    let (i, choices) = separated_list1(tag(", "), take_while1(is_choices_char))(i)?;
     Ok((i, choices))
 }
 
