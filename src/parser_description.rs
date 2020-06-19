@@ -370,7 +370,7 @@ mod tests {
         let mut line = String::from(templates::getlines(&templates::dash(), 3, 27));
         line.push('\n');
         match line_parser_decription_section::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((_i, value)) => {
                 assert!(value == ("Use dash as the default system shell (/bin/sh)?", vec!["The system shell is the default command interpreter for shell scripts.", "", "Using dash as the system shell will improve the system\'s overall", "performance. It does not alter the shell presented to interactive", "users."]));
             }
             Err(err) => {
