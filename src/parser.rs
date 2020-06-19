@@ -306,7 +306,7 @@ mod tests {
 
     #[test]
     fn test_dash_section_parser() {
-        let mut line = String::from(templates::getlines(&templates::dash(), 0, 9999));
+        let line = String::from(templates::getlines(&templates::dash(), 0, 9999));
         match section_parser::<VerboseError<&str>>(&line) {
             Ok((i, value)) => {
                 println!("value {:?}", value);
