@@ -431,7 +431,7 @@ mod tests {
         let line = templates::getlines(&templates::ca_certificates(), 3, 6);
         println!("line {:?}", line);
         match line_parser_decription_sections_all::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((_i, value)) => {
                 println!("value {:?}", value);
                 //                assert!(value == ("", vec![]));
             }
