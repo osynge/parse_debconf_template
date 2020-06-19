@@ -307,7 +307,7 @@ mod tests {
     fn test_line_parser_decription_line_blank() {
         let line = templates::getlines(&templates::dash(), 5, 6);
         match line_parser_decription_line_blank::<VerboseError<&str>>(&line) {
-            Ok((i, value)) => {
+            Ok((_i, value)) => {
                 println!("value {:?}", value);
                 assert!(value == "");
             }
