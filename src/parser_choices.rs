@@ -110,7 +110,7 @@ mod tests {
     fn test_line_parser_choices_all() {
         let line = templates::getlines(&templates::apt_listchanges(), 3, 26);
         match line_parser_choices_all::<VerboseError<&str>>(&line) {
-            Ok((i, (choices, locales))) => {
+            Ok((_i, (choices, locales))) => {
                 println!("choices {:?}", choices);
                 println!("choices len {:?}", choices.len());
                 println!("locales len {:?}", locales.len());
