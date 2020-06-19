@@ -94,7 +94,7 @@ mod tests {
     fn test_line_parser_choices_locales_all() {
         let line = templates::getlines(&templates::apt_listchanges(), 4, 9999);
         match line_parser_choices_locales_all::<VerboseError<&str>>(&line) {
-            Ok((i, choices)) => {
+            Ok((_i, choices)) => {
                 println!("choices {:?}", choices);
                 println!("choices len {:?}", choices.len());
                 assert!(choices.len() == 23);
