@@ -43,7 +43,7 @@ fn line_parser_choices_locales<'a, E: ParseError<&'a str>>(
     let (i, _) = delimiter_locale_country_encoding(i)?;
     let (i, encoding) = locale_encoding(i)?;
     let (i, _) = delimiter_key_value(i)?;
-    let (i, (choices)) = separated_list1(tag(", "), take_while1(is_choices_char))(i)?;
+    let (i, choices) = separated_list1(tag(", "), take_while1(is_choices_char))(i)?;
     Ok((i, (country, encoding, choices)))
 }
 
